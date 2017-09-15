@@ -1,0 +1,1 @@
+[{"teamid":0,"teamname":"Team 0"},{"teamid":1,"teamname":"Team 1"},{"teamid":2,"teamname":"Team 2"},{"teamid":3,"teamname":"Team 3"},{"teamid":4,"teamname":"Team 4"},{"teamid":5,"teamname":"Team 5"},{"teamid":6,"teamname":"Team 6"},{"teamid":7,"teamname":"Team 7"},{"teamid":8,"teamname":"Team 8"},{"teamid":9,"teamname":"Team 9"}]
