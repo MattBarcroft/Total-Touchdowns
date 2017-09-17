@@ -2,6 +2,7 @@
 //update bets
 include("fileHandler.php");
 include("objects/bet.php");
+include("objects/ganes.php");
 
 $fh = new fileHandler();
 
@@ -22,13 +23,25 @@ function getNextBetId(){
   return $maxid;
 }
 
-function createBet($gameid){
+function createBet($gameid, $selection){
   $bet = new Bet();
 
   $bet->set_betid(getNextBetId());
   $bet->set_gameid($gameid);
-  $bet->set
+  $bet->set_betplaced(time('d/m/y hh:mm:ss'));
+  $bet->set_selection($selection);
 
+}
+
+function createSingleSelection($gameid, $hometeamid, $hometeamscore, $awayteamid, $awayteamscore) {
+      $game = new games();
+      $game->set_gameid($gameid);
+      $game->set_hometeamid($hometeamid);
+      $game->set_awayteamid($awayteamid);
+      $game->set_hometeamscore($hometeamscore);
+      $game->set_awayteamscore($awayteamscore);
+
+      return $game;
 }
 
  ?>
