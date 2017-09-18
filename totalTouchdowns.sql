@@ -1,11 +1,11 @@
 CREATE DATABASE TotalTouchdownsDB;
 
-
+use TotalTouchdownsDB;
 CREATE TABLE Teams
 (
 	team_id int NOT NULL AUTO_INCREMENT,
   	name varchar(50) NOT NULL,
-  	CONSTRAINT PK_teams_pk PRIMARY KEY (teams_pk)
+  	CONSTRAINT PK_teams_pk PRIMARY KEY (team_id)
 );
 
 
