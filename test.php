@@ -1,9 +1,12 @@
 <?php
 include("fileHandler.php");
+include("updateBet.php");
 
 function main(){
 
   $fh = new fileHandler();
+  $ub = new updateBet();
+
   $contents = $fh->readFromFile("games.txt");
   $gamesArr = json_decode($contents);
 
@@ -11,11 +14,23 @@ function main(){
   $teamArr = json_decode($teamJson);
   //var_dump($teamArr);
 
-foreach ($gamesArr as $value) {
-  $hid = $value->hometeamid;
-echo getTeamNameById($hid, $teamArr) . PHP_EOL;
-}
-  //$input = readline( "Please insert your home team guess: ");
+  $game = [];
+
+  foreach ($gamesArr as $value) {
+    $hid = $value->hometeamid;
+    $aid = $value->awayteamid;
+
+    echo getTeamNameById($hid, $teamArr) . " VS " . getTeamNameById($aid, $teamArr) . PHP_EOL;
+
+    $homescoreinput = readline("Please enter home score: ");
+    $awayscoreinput = readline("Please enter away score: ");
+    $homescore = (int)$homescoreinput;
+    $awayscore = (int)$awayscoreinput;
+
+    array_push($game,$ub->createSingleSelection($value->gameid, $hid, $homescore, $aid, $awayscore));
+  }
+  //var_dump($game);
+$ub->createBet($game);
 }
 
 function getTeamNameById($id, $teamArr) {
@@ -28,4 +43,4 @@ function getTeamNameById($id, $teamArr) {
 }
 main();
 
- ?>
+?>
