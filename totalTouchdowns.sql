@@ -2,7 +2,7 @@ CREATE DATABASE TotalTouchdownsDB;
 
 
 CREATE TABLE Teams
-( 	
+(
 	team_id int NOT NULL AUTO_INCREMENT,
   	name varchar(50) NOT NULL,
   	CONSTRAINT PK_teams_pk PRIMARY KEY (teams_pk)
@@ -30,9 +30,9 @@ CREATE TABLE Users
 (
 	user_id  int NOT NULL AUTO_INCREMENT,
 	name varchar(20) NOT NULL,
-	address int NOT NULL,
-	password int NOT NULL,
-	email int NOT NULL,
+	address varchar(20) NOT NULL,
+	password varchar(20) NOT NULL,
+	email varchar(50) NOT NULL,
 	accountcreated DATETIME NOT NULL,
 	rgoptout TINYINT(1) NOT NULL,
 	CONSTRAINT PK_user_id PRIMARY KEY (user_id)
@@ -63,4 +63,3 @@ CREATE TABLE Selections
     CONSTRAINT FK_gameid FOREIGN KEY (game_id)
     REFERENCES Games(game_id)
 );
-
