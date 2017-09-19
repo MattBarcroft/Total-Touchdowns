@@ -1,92 +1,93 @@
 INSERT INTO users
 (
-name,
+firstname,
+lastname,
 address,
 password,
 email,
-accountcreated,
 rgoptout
+
 
 )
 VALUES
     (
-    "Alice Palmer",
+    "Alice",
+    "Palmer"
     "1 Wellington Place",
     "letmein01",
     "alicepalmer@sbgmail.com",
-    "2017-09-17 13:00:00",
     "0"),
 
     (
-    "Connor Jones",
+    "Connor",
+    "Jones",
     "2 Wellington Place",
     "letmein02",
     "connorjones@sbgmail.com",
-    "2017-09-17 13:00:00",
     "0"),
 
     (
-    "Matthew Barcroft",
+    "Matthew",
+    "Barcroft"
     "3 Wellington Place",
     "letmein03",
     "matthewbarcroft@sbgmail.com",
-    "2017-09-17 13:00:00",
     "0"),
 
     (
-    "Mandy Thornton",
+    "Mandy",
+    "Thornton",
     "4 Wellington Place",
     "letmein04",
     "mandythornton@sbgmail.com",
-    "2017-09-17 13:00:00",
     "0"),
 
     (
-    "James Snape",
+    "James",
+    "Snape",
     "5 Wellington Place",
     "letmein05",
     "jamessnape@sbgmail.com",
-    "2017-09-17 13:00:00",
     "0"),
     
     (
-    "Emily O'Connor",
+    "Emily",
+    "O'Connor",
     "6 Wellington Place",
     "letmein06",
     "emilyoconnor@sbgmail.com",
-    "2017-09-17 13:00:00",
     "0"),
 
     (
-    "Alex Woodhouse",
+    "Alex",
+    "Woodhouse",
     "7 Wellington Place",
     "letmein07",
     "alexwoodhouse@sbgmail.com",
-    "2017-09-17 13:00:00",
     "0"),
 
     (
-    "Jake Tongue",
+    "Jake",
+    "Tongue",
     "8 Wellington Place",
     "letmein08",
     "jaketongue@sbgmail.com",
-    "2017-09-17 13:00:00",
     "0"),
 
     (
-    "Howard Jones",
+    "Howard",
+    "Jones",
     "9 Wellington Place",
     "letmein09",
     "howardjones@sbgmail.com",
-    "2017-09-17 13:00:00",
     "0"),
     
     (
-    "Jess Lettall",
+    "Jess",
+    "Lettall",
     "10 Wellington Place",
     "letmein10",
-    "jess lettall@sbgmail.com",
-    "2017-09-17 13:00:00",
+    "jesslettall@sbgmail.com",
     "0"
 );
 
@@ -119,6 +120,7 @@ INSERT INTO games
   	location,
   	week_id
 )
+
 
 VALUES (
     "1",
@@ -175,8 +177,7 @@ user_id
 
 VALUES 
 
-(
-    "1"),("2"),("3"),("4"),("5"),("6"),("7"),("8"),("9"),("10")
+("1"),("2"),("3"),("4"),("5"),("6"),("7"),("8"),("9"),("10")
 ;
 
 
