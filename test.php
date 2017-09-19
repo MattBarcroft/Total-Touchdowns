@@ -3,7 +3,6 @@ include("fileHandler.php");
 include("updateBet.php");
 
 function main(){
-
   $fh = new fileHandler();
   $ub = new updateBet();
 
