@@ -12,7 +12,7 @@ rgoptout
 VALUES
     (
     "Alice",
-    "Palmer"
+    "Palmer",
     "1 Wellington Place",
     "letmein01",
     "alicepalmer@sbgmail.com",
@@ -28,7 +28,7 @@ VALUES
 
     (
     "Matthew",
-    "Barcroft"
+    "Barcroft",
     "3 Wellington Place",
     "letmein03",
     "matthewbarcroft@sbgmail.com",
