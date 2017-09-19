@@ -27,11 +27,14 @@ CREATE TABLE Games
 CREATE TABLE Users
 (
 	user_id  int NOT NULL AUTO_INCREMENT,
-	name varchar(20) NOT NULL,
+	firstname varchar(30) NOT NULL,
+	lastname varchar(30) NOT NULL,
 	address varchar(20) NOT NULL,
 	password varchar(20) NOT NULL,
 	email varchar(50) NOT NULL,
-	accountcreated DATETIME NOT NULL,
+	accountcreated DATETIME DEFAULT   CURRENT_TIMESTAMP,
+	accountmodified DATETIME ON UPDATE CURRENT_TIMESTAMP,
+	totalscore int NULL,
 	rgoptout TINYINT(1) NOT NULL,
 	CONSTRAINT PK_user_id PRIMARY KEY (user_id)
 );
@@ -41,6 +44,8 @@ CREATE TABLE Bets
 (
 	bet_id int NOT NULL AUTO_INCREMENT,
 	user_id int NOT NULL,
+	betcreated DATETIME DEFAULT   CURRENT_TIMESTAMP,
+	betmodified DATETIME ON UPDATE CURRENT_TIMESTAMP,
 	CONSTRAINT PK_bet_id PRIMARY KEY (bet_id),
 	CONSTRAINT FK_userid FOREIGN KEY (user_id)
     REFERENCES Users(user_id)
