@@ -3,11 +3,10 @@ class teams{
 public $teamid;
 public $teamname;
 
-  function __construct($teamid, $teamname)
+  function __construct($teamname)
   {
-    $this->teamid = $teamid;
-    $this->tablename = $teamname;
-}
+    $this->teamname = $teamname;
+  }
 
 
 //getter and setter for teamid
