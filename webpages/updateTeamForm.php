@@ -9,7 +9,7 @@
    ?>
 </head>
 <body>
-  <form method="post" action="../webpages/updateTeam.php">
+  <form method="get" action="../webpages/updateTeam.php">
     Team Name:
   <select name="team_id">
     <?php
@@ -22,7 +22,7 @@
 
   </select>
     <br><br>
-    <input type="submit" name="submit" value="Submit">
+    <input type="submit" value="Submit">
   </form>
 </body>
 </html>

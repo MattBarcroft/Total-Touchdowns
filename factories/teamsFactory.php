@@ -17,10 +17,11 @@ class teamsFactory{
     $pdo = get_db();
 
     $r = $pdo->prepare("
-        UPDATE TotalTouchdownsDB.Teams
-        WHERE (team_id = :teamid)");
+          UPDATE TotalTouchdownsDB.Teams
+          SET name = :name
+          WHERE team_id = :team_id");
 
-    $r->execute(array(':firstname' => $team->get_firstname(),':lastname' => $team->get_lastname()));
+    $r->execute(array(':team_id' => $team->get_teamid(),':name' => $team->get_teamname()));
   }
 
   function delete_team($teamid){

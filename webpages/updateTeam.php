@@ -7,9 +7,10 @@
 </head>
 <body>
   <form method="post" action="../logic/updateTeam.php">
+    <input value="<?php $_GET['team_id']; ?>" type="hidden" name="teamid">
     Team Name: <input type="text" name="teamname">
     <br><br>
-    <input type="submit" name="submit" value="Submit">
+    <input type="submit" value="Submit">
   </form>
 </body>
 </html>
