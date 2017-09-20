@@ -3,6 +3,13 @@ class teams{
 public $teamid;
 public $teamname;
 
+  function __construct($teamid, $teamname)
+  {
+    $this->teamid = $teamid;
+    $this->tablename = $teamname;
+}
+
+
 //getter and setter for teamid
 function set_teamid($teamid){
   $this->teamid = $teamid;

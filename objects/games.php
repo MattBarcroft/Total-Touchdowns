@@ -48,5 +48,30 @@ class games{
   function get_awayteamactualscore(){
     return $this->awayteamactualscore;
   }
+
+  //getter and setter for kickoffdate
+  function set_kickoffdate($kickoffdate){
+    $this->kickoffdate = $kickoffdate;
+  }
+  function get_kickoffdate(){
+    return $this->kickoffdate;
+  }
+
+  //getter and setter for location
+  function set_location($location){
+    $this->location = $location;
+  }
+  function get_location(){
+    return $this->location;
+  }
+
+  //getter and setter for weekid
+  function set_weekid($weekid){
+    $this->weekid = $weekid;
+  }
+  function get_weekid(){
+    return $this->weekid;
+  }
+
 }
  ?>
