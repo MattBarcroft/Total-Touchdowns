@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 spl_autoload_register(function($classname){
         if(file_exists("../objects/"."$classname.php")){

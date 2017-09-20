@@ -7,7 +7,7 @@ $team = new teams($name);
 
 $teamsFactory = new teamsFactory();
 
-$teamsFactory->insertTeam($team);
+$teamsFactory->insert_team($team);
 
 header("Location: ../webpages/index.php");
 

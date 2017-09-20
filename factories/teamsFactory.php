@@ -1,7 +1,7 @@
 <?php
 class teamsFactory{
 
-  function insertTeam($team){
+  function insert_team($team){
 
     $pdo = get_db();
 
@@ -12,7 +12,7 @@ class teamsFactory{
     $r->execute([':teamname' => $team->get_teamname()]);
   }
 
-  function updateTeam($team){
+  function update_team($team){
 
     $pdo = get_db();
 
@@ -23,7 +23,7 @@ class teamsFactory{
     $r->execute([':teamname' => $team->get_teamname()]);
   }
 
-  function deleteTeam($team){
+  function delete_team($team){
 
     $pdo = get_db();
 
@@ -34,23 +34,21 @@ class teamsFactory{
     $r->execute([':teamname' => $team->get_teamname()]);
   }
 
-  function selectSingleTeam($team){
+  function select_single_team($team_id){
 
     $pdo = get_db();
 
     $r = $pdo->prepare("
         SELECT team_id, name FROM TotalTouchdownsDB.Teams
-        WHERE (:teamname)");
+        WHERE team_id = :teamid");
 
-    $r->execute([':teamname' => $team->get_teamname()]);
+    $r->execute([':teamid' => $team_id]);
 
-    foreach ($r as $row){
-        echo "Game " . $row["game_id"] . " is " . $row["team1name"]." Vs ". $row["team2name"]."<br>";
-    }
+    return $r;
 
   }
 
-  function selectAllTeams(){
+  function select_all_teams(){
     $pdo = get_db();
 
     $r = $pdo->prepare("
@@ -58,9 +56,6 @@ class teamsFactory{
 
     $r->execute();
     return $r;
-    foreach ($r as $row){
-        echo "Game " . $row["team_id"] . " is " . $row["team1name"]." Vs ". $row["team2name"]."<br>";
-    }
 
   }
 
