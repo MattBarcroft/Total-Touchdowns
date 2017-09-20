@@ -17,21 +17,21 @@ class teamsFactory{
     $pdo = get_db();
 
     $r = $pdo->prepare("
-        DELETE FROM TotalTouchdownsDB.Teams (name)
-        VALUES (:teamname)");
+        UPDATE TotalTouchdownsDB.Teams
+        WHERE (team_id = :teamid)");
 
-    $r->execute([':teamname' => $team->get_teamname()]);
+    $r->execute(array(':firstname' => $team->get_firstname(),':lastname' => $team->get_lastname()));
   }
 
-  function delete_team($team){
+  function delete_team($teamid){
 
     $pdo = get_db();
 
     $r = $pdo->prepare("
-        INSERT INTO TotalTouchdownsDB.Teams (name)
-        VALUES (:teamname)");
+        DELETE FROM TotalTouchdownsDB.Teams
+        WHERE (team_id = :teamid)");
 
-    $r->execute([':teamname' => $team->get_teamname()]);
+    $r->execute([':teamid' => $teamid]);
   }
 
   function select_single_team($team_id){

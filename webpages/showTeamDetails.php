@@ -13,10 +13,10 @@ $teamid = $_GET['teamid'];
 $teams = new teamsFactory();
 $rows = $teams->select_single_team($teamid);
 
-foreach($rows as $row){
-  echo $row['team_id'].$row['name'];
-}
-echo $row[0]['team_id'].$row[0]['name'];
+$r = $rows->fetchAll();
+echo $r[0]['teamid'].$r[0]['name'];
+
+
 
 ?>
 </body>
