@@ -1,14 +1,5 @@
 <?php
-include("../objects/user.php");
-include("../factories/userFactory.php");
-
-$host ='127.0.0.1';
-$db = 'TotalTouchdownsDB';
-$userdb = 'user1';
-$pass = 'mypass';
-
-$dsn = "mysql:host=$host; dbname=$db";
-$pdo = new PDO($dsn, $userdb, $pass);
+include("../includes/init.php");
 
 $firstname = $_POST["firstname"];
 $lastname = $_POST["lastname"];
@@ -16,11 +7,11 @@ $email = $_POST["email"];
 $address = $_POST["address"];
 $password = $_POST["password"];
 
-$user = new user($firstname, $lastname, $email, $address, $password);
+$user = new user($firstname, $lastname, $address, $email, $password);
 
 $userFactory = new userFactory();
 $userFactory->insertUser($user);
 
-header("../webpages/index.php")
+header("Location: ../webpages/index.php")
 
 ?>

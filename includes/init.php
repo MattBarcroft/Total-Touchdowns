@@ -4,6 +4,10 @@ spl_autoload_register(function($classname){
         if(file_exists("../objects/"."$classname.php")){
             Require "../objects/"."$classname.php";
         }
+        else if(file_exists("../logic/"."$classname.php"))
+        {
+          Require "../logic/"."$classname.php";
+        }
         else {
             Require "../factories/"."$classname.php";
         }
