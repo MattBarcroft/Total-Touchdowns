@@ -6,7 +6,7 @@
   <title>Document</title>
 </head>
 <body>
-  <form method="post" action="../logic/insertUser.php">
+  <form method="post" action="../controllers/user/insertUser.php">
     First Name: <input type="text" name="firstname">
     <br><br>
     Last Name: <input type="text" name="lastname">

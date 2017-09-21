@@ -6,10 +6,11 @@
   <title>Document</title>
 </head>
 <body>
-  <form method="post" action="../logic/insertTeam.php">
+  <form method="post" action="../controllers/team/updateTeam.php">
+    <input value="<?php echo $_GET['team_id']; ?>" type="hidden" name="team_id">
     Team Name: <input type="text" name="teamname">
     <br><br>
-    <input type="submit" name="submit" value="Submit">
+    <input type="submit">
   </form>
 </body>
 </html>

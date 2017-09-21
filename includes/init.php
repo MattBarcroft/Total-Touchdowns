@@ -1,15 +1,11 @@
 <?php
 
 spl_autoload_register(function($classname){
-        if(file_exists("../objects/"."$classname.php")){
-            Require "../objects/"."$classname.php";
-        }
-        else if(file_exists("../logic/"."$classname.php"))
-        {
-          Require "../logic/"."$classname.php";
+        if(file_exists($_SERVER['DOCUMENT_ROOT']."/model/classes/"."$classname.php")){
+            Require $_SERVER['DOCUMENT_ROOT']."/model/classes/"."$classname.php";
         }
         else {
-            Require "../factories/"."$classname.php";
+            Require $_SERVER['DOCUMENT_ROOT']."/model/factories/"."$classname.php";
         }
 });
 

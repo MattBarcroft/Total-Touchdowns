@@ -1,5 +1,5 @@
 <?php
-include("../includes/init.php");
+include("../../includes/init.php");
 
 $name = $_POST["teamname"];
 
@@ -9,6 +9,6 @@ $teamsFactory = new teamsFactory();
 
 $teamsFactory->insert_team($team);
 
-header("Location: ../webpages/index.php");
+header("Location: ../../teams/index.php");
 
 ?>

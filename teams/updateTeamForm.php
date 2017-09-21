@@ -9,7 +9,7 @@
    ?>
 </head>
 <body>
-  <form method="get" action="../webpages/updateTeam.php">
+  <form method="get" action="../teams/update.php">
     Team Name:
   <select name="team_id">
     <?php

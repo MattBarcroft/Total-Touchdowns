@@ -9,7 +9,7 @@
 <body>
 <?php
 
-$teamid = $_GET['teamid'];
+$teamid = $_GET['team_id'];
 $teams = new teamsFactory();
 $rows = $teams->select_single_team($teamid);
 
