@@ -1,6 +1,7 @@
 <?php
 class user{
   public $userid;
+  public $username;
   public $userfirstname;
   public $userlastname;
   public $useraddress;
@@ -11,13 +12,29 @@ class user{
   public $usertotalscore;
   public $userrgoptout;
 
-  function __construct($userfirstname, $userlastname, $useraddress, $useremail, $userpassword){
-
+  function __construct($username, $userfirstname, $userlastname, $useraddress, $useremail, $userpassword){
+    $this->username = $username;
     $this->userfirstname = $userfirstname;
     $this->userlastname = $userlastname;
     $this->useraddress = $useraddress;
     $this->userpassword = $userpassword;
     $this->useremail = $useremail;
+  }
+
+  function createtotaluser($userid, $username, $userfirstname, $userlastname,
+  $useraddress, $useremail, $userpassword, $useraccountcreated,
+  $useraccountmodified, $usertotalscore, $userrgoptout){
+    $this->userid = $userid;
+    $this->username = $username;
+    $this->userfirstname = $userfirstname;
+    $this->userlastname = $userlastname;
+    $this->useraddress = $useraddress;
+    $this->userpassword = $userpassword;
+    $this->useremail = $useremail;
+    $this->usertotalscore = $usertotalscore;
+    $this->useraccountcreated = $useraccountcreated;
+    $this->useraccountmodified = $useraccountmodified;
+    $this->userrgoptout = $userrgoptout;
   }
 
   //getter and setter for userid
@@ -26,6 +43,14 @@ class user{
   }
   function get_userid(){
     return $this->userid;
+  }
+
+  //getter and setter for username
+  function set_username($username){
+    $this->username = $username;
+  }
+  function get_username(){
+    return $this->username;
   }
 
   //getter and setter for userfirstname
