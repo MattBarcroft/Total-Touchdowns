@@ -33,7 +33,7 @@ class userFactory {
     $pdo = get_db();
 
     $r = $pdo->prepare("
-        SELECT firstname, lastname, address, password, email FROM TotalTouchdownsDB.Users");
+        SELECT user_id, firstname, lastname, address, password, email FROM TotalTouchdownsDB.Users");
 
     $r->execute();
     return $r;
