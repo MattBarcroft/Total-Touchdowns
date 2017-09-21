@@ -1,5 +1,6 @@
 INSERT INTO users
 (
+username,
 firstname,
 lastname,
 address,
@@ -11,83 +12,93 @@ rgoptout
 )
 VALUES
     (
+    "frank99",
     "Frank",
     "Palmer",
     "100 Wellington Place",
     "letmein01",
-    "alicepalmer@sbgmail.com",
+    "frankpalmer@sbgmail.com",
     "0"),
 
     (
+    "connor99",
     "Connor",
     "Smith",
     "2 Wellington Place",
     "letmein02",
-    "connorjones@sbgmail.com",
+    "connorsmith@sbgmail.com",
     "0"),
 
     (
+    "matthew99",
     "Matthew",
     "Smith",
     "3 Wellington Place",
     "letmein03",
-    "matthewbarcroft@sbgmail.com",
+    "matthewsmith@sbgmail.com",
     "0"),
 
     (
+    "mandy99",
     "Mandy",
     "Johnstone",
     "4 Wellington Place",
     "letmein04",
-    "mandythornton@sbgmail.com",
+    "mandyjohnstone@sbgmail.com",
     "0"),
 
     (
+    "jimbo99",
     "Jimbo",
     "Ricards",
     "5 Wellington Place",
     "letmein05",
-    "jamessnape@sbgmail.com",
+    "jimboricards@sbgmail.com",
     "0"),
 
     (
+    "emily99",
     "Emily",
     "Emmetson",
     "6 Wellington Place",
     "letmein06",
-    "emilyoconnor@sbgmail.com",
+    "emilyemmetson@sbgmail.com",
     "0"),
 
     (
+    "alex99",
     "Alex",
     "Banks",
     "7 Wellington Place",
     "letmein07",
-    "alexwoodhouse@sbgmail.com",
+    "alexbanks@sbgmail.com",
     "0"),
 
     (
+    "jake99",
     "Jake",
     "Young",
     "8 Wellington Place",
     "letmein08",
-    "jaketongue@sbgmail.com",
+    "jakeyoung@sbgmail.com",
     "0"),
 
     (
+    "howard99",
     "Howard",
     "Howardson",
     "9 Wellington Place",
     "letmein09",
-    "howardjones@sbgmail.com",
+    "howardhowardson@sbgmail.com",
     "0"),
 
     (
+    "jess99",
     "Jess",
     "Lee",
     "10 Wellington Place",
     "letmein10",
-    "jesslettall@sbgmail.com",
+    "jessleel@sbgmail.com",
     "0"
 );
 
