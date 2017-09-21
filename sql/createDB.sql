@@ -27,18 +27,18 @@ CREATE TABLE Games
 CREATE TABLE Users
 (
 	user_id  int NOT NULL AUTO_INCREMENT,
-	username varchar(25) NOT NULL, 
+	username varchar(25) NOT NULL,
 	firstname varchar(30) NOT NULL,
 	lastname varchar(30) NOT NULL,
 	address varchar(20) NOT NULL,
-	password varchar(20) NOT NULL,
+	password varchar(100) NOT NULL,
 	email varchar(50) NOT NULL,
 	accountcreated DATETIME DEFAULT   CURRENT_TIMESTAMP,
 	accountmodified DATETIME ON UPDATE CURRENT_TIMESTAMP,
 	totalscore int NULL,
 	rgoptout TINYINT(1) NOT NULL DEFAULT 0,
 	CONSTRAINT PK_user_id PRIMARY KEY (user_id),
-	CONSTRAINT username_unique (username)
+	UNIQUE (username)
 );
 
 
