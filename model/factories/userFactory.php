@@ -29,9 +29,16 @@ class userFactory {
   //   return $user;
   // }
   //
-  // function getAllUser(){
-  //   $query = "select * from TotalTouchdownsDB.User";
-  // }
+  function getAllUsers(){
+    $pdo = get_db();
+
+    $r = $pdo->prepare("
+        SELECT firstname, lastname, address, password, email FROM TotalTouchdownsDB.Users");
+
+    $r->execute();
+    return $r;
+
+  }
   //
   // function updateUser(){
   //

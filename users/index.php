@@ -9,7 +9,7 @@
 <body>
   <?php
   $users = new userFactory();
-  $rows = $users->select_all_users();
+  $rows = $users->getAllUsers();
   echo "<table>";
   echo "<tr><th>User Id</th>";
   echo "<th>First Name</th>";
