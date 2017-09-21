@@ -7,6 +7,8 @@
 </head>
 <body>
   <form method="post" action="../controllers/user/insertUser.php">
+    Username: <input type="text" name="username">
+    <br><br>
     First Name: <input type="text" name="firstname">
     <br><br>
     Last Name: <input type="text" name="lastname">
@@ -17,7 +19,7 @@
     <br><br>
     Password: <input type="password" name="password">
     <br><br>
-    <input type="submit" name="submit" value="Submit">
+    <input type="submit">
   </form>
 </body>
 </html>
