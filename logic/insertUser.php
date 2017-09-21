@@ -7,6 +7,7 @@ $email = $_POST["email"];
 $address = $_POST["address"];
 $password = $_POST["password"];
 
+$password = password_hash($password, PASSWORD_DEFAULT);
 $user = new user($firstname, $lastname, $address, $email, $password);
 
 $userFactory = new userFactory();
