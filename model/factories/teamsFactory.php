@@ -1,66 +1,61 @@
 <?php
-class teamsFactory{
+class teamsFactory
+{
+    public function insert_team($team)
+    {
+        $pdo = get_db();
 
-  function insert_team($team){
-
-    $pdo = get_db();
-
-    $r = $pdo->prepare("
+        $r = $pdo->prepare("
         INSERT INTO TotalTouchdownsDB.Teams (name)
         VALUES (:teamname)");
 
-    $r->execute([':teamname' => $team->get_teamname()]);
-  }
+        $r->execute(array(':teamname' => $team->get_teamname()));
+    }
 
-  function update_team($team){
+    public function update_team($team)
+    {
+        $pdo = get_db();
 
-    $pdo = get_db();
-
-    $r = $pdo->prepare("
+        $r = $pdo->prepare("
           UPDATE TotalTouchdownsDB.Teams
           SET name = :name
           WHERE team_id = :team_id");
 
-    $r->execute(array(':team_id' => $team->get_teamid(),':name' => $team->get_teamname()));
-  }
+        $r->execute(array(':team_id' => $team->get_teamid(),':name' => $team->get_teamname()));
+    }
 
-  function delete_team($teamid){
+    public function delete_team($teamid)
+    {
+        $pdo = get_db();
 
-    $pdo = get_db();
-
-    $r = $pdo->prepare("
+        $r = $pdo->prepare("
         DELETE FROM TotalTouchdownsDB.Teams
         WHERE (team_id = :teamid)");
 
-    $r->execute([':teamid' => $teamid]);
-  }
+        $r->execute([':teamid' => $teamid]);
+    }
 
-  function select_single_team($team_id){
+    public function select_single_team($team_id)
+    {
+        $pdo = get_db();
 
-    $pdo = get_db();
-
-    $r = $pdo->prepare("
+        $r = $pdo->prepare("
         SELECT team_id, name FROM TotalTouchdownsDB.Teams
         WHERE team_id = :teamid");
 
-    $r->execute([':teamid' => $team_id]);
+        $r->execute([':teamid' => $team_id]);
 
-    return $r;
+        return $r;
+    }
 
-  }
+    public function select_all_teams()
+    {
+        $pdo = get_db();
 
-  function select_all_teams(){
-    $pdo = get_db();
-
-    $r = $pdo->prepare("
+        $r = $pdo->prepare("
         SELECT team_id, name FROM TotalTouchdownsDB.Teams");
 
-    $r->execute();
-    return $r;
-
-  }
-
+        $r->execute();
+        return $r;
+    }
 }
-
-
- ?>

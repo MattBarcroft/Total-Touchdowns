@@ -1,0 +1,22 @@
+.form-bet-scores{
+  width:35px;
+}
+.btn-add-score, .form-bet-scores{
+  float:left;
+}
+.individual-game{
+  margin: 10px 0;
+  background-color: #ccc;
+  border-color: #ddd;
+  border-width: 1px;
+  border-radius: 4px 4px 0 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  height: 150px;
+}
+.game-header{
+  text-align: center;
+}
+.team-name-header{
+  height:40px;
+}

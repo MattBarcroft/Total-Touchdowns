@@ -1,77 +1,101 @@
 <?php
-class games{
-  public $gameid;
-  public $hometeamid;
-  public $awayteamid;
-  public $hometeamactualscore;
-  public $awayteamactualscore;
-  public $kickoffdate;
-  public $location;
-  public $weekid;
+class games
+{
+    public $gameid;
+    public $hometeamid;
+    public $awayteamid;
+    public $hometeamactualscore;
+    public $awayteamactualscore;
+    public $kickoff_datetime;
+    public $location;
+    public $week_id;
 
-  //getter and setter for gameid
-  function set_gameid($gameid){
-    $this->gameid = $gameid;
-  }
-  function get_gameid(){
-    return $this->gameid;
-  }
 
-  //getter and setter for hometeamid
-  function set_hometeamid($hometeamid){
-    $this->hometeamid = $hometeamid;
-  }
-  function get_hometeamid(){
-    return $this->hometeamid;
-  }
+    public function __construct($hometeamid, $awayteamid, $kickoff_datetime, $week_id, $location)
+    {
+        $this->hometeamid = $hometeamid;
+        $this->awayteamid = $awayteamid;
+        $this->kickoff_datetime = $kickoff_datetime;
+        $this->week_id = $week_id;
+        $this->location = $location;
+    }
+    //getter and setter for gameid
+    public function set_gameid($gameid)
+    {
+        $this->gameid = $gameid;
+    }
+    public function get_gameid()
+    {
+        return $this->gameid;
+    }
 
-  //getter and setter for awayteamid
-  function set_awayteamid($awayteamid){
-    $this->awayteamid = $awayteamid;
-  }
-  function get_awayteamid(){
-    return $this->awayteamid;
-  }
+    //getter and setter for hometeamid
+    public function set_hometeamid($hometeamid)
+    {
+        $this->hometeamid = $hometeamid;
+    }
+    public function get_hometeamid()
+    {
+        return $this->hometeamid;
+    }
 
-  //getter and setter for hometeamscore
-  function set_hometeamactualscore($hometeamactualscore){
-    $this->hometeamactualscore = $hometeamactualscore;
-  }
-  function get_hometeamactualscore(){
-    return $this->hometeamactualscore;
-  }
+    //getter and setter for awayteamid
+    public function set_awayteamid($awayteamid)
+    {
+        $this->awayteamid = $awayteamid;
+    }
+    public function get_awayteamid()
+    {
+        return $this->awayteamid;
+    }
 
-  //getter and setter for awayteamscore
-  function set_awayteamactualscore($awayteamactualscore){
-    $this->awayteamactualscore = $awayteamactualscore;
-  }
-  function get_awayteamactualscore(){
-    return $this->awayteamactualscore;
-  }
+    //getter and setter for hometeamscore
+    public function set_hometeamactualscore($hometeamactualscore)
+    {
+        $this->hometeamactualscore = $hometeamactualscore;
+    }
+    public function get_hometeamactualscore()
+    {
+        return $this->hometeamactualscore;
+    }
 
-  //getter and setter for kickoffdate
-  function set_kickoffdate($kickoffdate){
-    $this->kickoffdate = $kickoffdate;
-  }
-  function get_kickoffdate(){
-    return $this->kickoffdate;
-  }
+    //getter and setter for awayteamscore
+    public function set_awayteamactualscore($awayteamactualscore)
+    {
+        $this->awayteamactualscore = $awayteamactualscore;
+    }
+    public function get_awayteamactualscore()
+    {
+        return $this->awayteamactualscore;
+    }
 
-  //getter and setter for location
-  function set_location($location){
-    $this->location = $location;
-  }
-  function get_location(){
-    return $this->location;
-  }
+    //getter and setter for kickoffdate
+    public function set_kickoffdate($kickoff_datetime)
+    {
+        $this->kickoff_datetime = $kickoff_datetime;
+    }
+    public function get_kickoffdate()
+    {
+        return $this->kickoff_datetime;
+    }
 
-  //getter and setter for weekid
-  function set_weekid($weekid){
-    $this->weekid = $weekid;
-  }
-  function get_weekid(){
-    return $this->weekid;
-  }
+    //getter and setter for location
+    public function set_location($location)
+    {
+        $this->location = $location;
+    }
+    public function get_location()
+    {
+        return $this->location;
+    }
 
+    //getter and setter for weekid
+    public function set_weekid($weekid)
+    {
+        $this->week_id = $weekid;
+    }
+    public function get_weekid()
+    {
+        return $this->week_id;
+    }
 }
- ?>
