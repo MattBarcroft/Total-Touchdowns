@@ -3,7 +3,7 @@ class userFactory {
 
   function insertUser($user){
     $pdo = get_db();
-
+//todo add handling to let user know if username already exists
     $r = $pdo->prepare("
         INSERT INTO TotalTouchdownsDB.Users (username, firstname, lastname, address, password, email, rgoptout)
         VALUES (:username, :firstname, :lastname, :address, :password, :email, :rgoptout)");

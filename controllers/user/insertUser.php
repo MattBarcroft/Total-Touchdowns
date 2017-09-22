@@ -20,6 +20,6 @@ $userFactory = new userFactory();
   $userFactory->insertUser($user);
 
 
-header("Location: /users/index.php")
+header("Location: /index.php")
 
 ?>

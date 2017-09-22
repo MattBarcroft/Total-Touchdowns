@@ -26,8 +26,8 @@ $password = password_hash($password, PASSWORD_DEFAULT );
   $_SESSION["username"] = $username;
   $_SESSION["password"] = $password;
 
-setcookie("username", $_SESSION["username"], time()+60, "/");
-setcookie("password", $_SESSION["password"], time()+60, "/");
+setcookie("username", $_SESSION["username"], time()+60*60, "/");
+setcookie("password", $_SESSION["password"], time()+60*60, "/");
 return;
 }
 
