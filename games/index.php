@@ -59,9 +59,9 @@
           echo "<div class='team-name-header'>";
           echo "<h4>".$row['htname']."</h4>";
           echo "</div>";
-          echo "<button class='btn btn-primary btn-add-score' type='input'>+</button>";
-          echo "<input class='form-control form-bet-scores' value='0' name='htscore-game-".$row['game_id']."' id='htscore-game-".$row['game_id']."' type='text'>";
           echo "<button class='btn btn-primary btn-subtract-score' type='input'>-</button>";
+          echo "<input class='form-control form-bet-scores' value='0' name='htscore-game-".$row['game_id']."' id='htscore-game-".$row['game_id']."' type='text'>";
+          echo "<button class='btn btn-primary btn-add-score' type='input'>+</button>";
           echo "</div>";
           echo "<div class='col-md-1'></div>";
 
@@ -69,9 +69,9 @@
           echo "<div class='team-name-header'>";
           echo "<h4>".$row['atname']."</h4>";
           echo "</div>";
-          echo "<button class='btn btn-primary btn-add-score' type='input'>+</button>";
-          echo "<input class='form-control form-bet-scores' value='0' id='atscore-game-".$row['game_id']."' name='atscore-game-".$row['game_id']."' type='text'>";
           echo "<button class='btn btn-primary btn-subtract-score' type='input'>-</button>";
+          echo "<input class='form-control form-bet-scores' value='0' id='atscore-game-".$row['game_id']."' name='atscore-game-".$row['game_id']."' type='text'>";
+          echo "<button class='btn btn-primary btn-add-score' type='input'>+</button>";
           echo "</div>";
 
           echo "</div>";
