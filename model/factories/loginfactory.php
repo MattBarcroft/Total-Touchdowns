@@ -53,9 +53,9 @@ $seshpassword =  $_SESSION["password"];
 if (isset($_SESSION["username"]) && isset($_SESSION['password'])) {
   return true;
 }
+else return false;
 
 
-  return true;
 }
 
 
