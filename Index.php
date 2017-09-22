@@ -14,15 +14,15 @@ if ($lf->check_logged_in()) {
 echo "<p>Hello $user </p>";
 ?>
 
-<a href="http://localhost:8081/users/logout.php">Logout</a>
+<a href="/users/logout.php">Logout</a>
 
 <?
 }
 else {
   ?>
 
-  <a href="http://localhost:8081/users/login.php">Login</a>
-  <a href="http://localhost:8081/users/create.php">Register</a>
+  <a href="/users/login.php">Login</a>
+  <a href="/users/create.php">Register</a>
 
 <?
 }
@@ -32,7 +32,7 @@ else {
 
 <body>
   <br><br><br>
-<a href="http://localhost:8081/games/index.php">Play Total Touchdown</a>
+<a href="/games/index.php">Play Total Touchdown</a>
 </body>
 
 </html>

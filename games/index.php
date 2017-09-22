@@ -1,3 +1,6 @@
+<?php
+include("../includes/init.php");
+?>
 <html>
 <head>
   <title>Total touchdowns</title>
@@ -8,9 +11,7 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="../content/script/main.js"></script>
   <link href="../content/style/main.css" rel="stylesheet">
-  <?php
-  include("../includes/init.php");
-  ?>
+
 </head>
 
 <body>
