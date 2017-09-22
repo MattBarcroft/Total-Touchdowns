@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 spl_autoload_register(function($classname){
         if(file_exists($_SERVER['DOCUMENT_ROOT']."/model/classes/"."$classname.php")){
             Require $_SERVER['DOCUMENT_ROOT']."/model/classes/"."$classname.php";

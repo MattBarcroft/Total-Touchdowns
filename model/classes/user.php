@@ -1,5 +1,5 @@
 <?php
-class user{
+class user {
   public $userid;
   public $username;
   public $userfirstname;
@@ -21,21 +21,6 @@ class user{
     $this->useremail = $useremail;
   }
 
-  function createtotaluser($userid, $username, $userfirstname, $userlastname,
-  $useraddress, $useremail, $userpassword, $useraccountcreated,
-  $useraccountmodified, $usertotalscore, $userrgoptout){
-    $this->userid = $userid;
-    $this->username = $username;
-    $this->userfirstname = $userfirstname;
-    $this->userlastname = $userlastname;
-    $this->useraddress = $useraddress;
-    $this->userpassword = $userpassword;
-    $this->useremail = $useremail;
-    $this->usertotalscore = $usertotalscore;
-    $this->useraccountcreated = $useraccountcreated;
-    $this->useraccountmodified = $useraccountmodified;
-    $this->userrgoptout = $userrgoptout;
-  }
 
   //getter and setter for userid
   function set_userid($userid){
@@ -125,6 +110,9 @@ class user{
     return $this->userrgoptout;
   }
 
+  function verify_password($pass){
+    return password_verify($pass, $this->userpassword);
+  }
 
 }
 ?>
