@@ -1,9 +1,10 @@
+<?php
+include("../includes/init.php");
+?>
 <html>
 <head>
   <title>Total touchdowns</title>
-  <?php
-  include("../includes/init.php");
-  ?>
+
 </head>
 
 <body>

@@ -20,3 +20,21 @@
 .team-name-header{
   height:40px;
 }
+.card {
+    height: 100%;
+}
+#navbar-upper{
+  background-color:#1b3c7b;
+}
+#navbar-lower{
+  background-color:#0b2352;
+}
+.navbar-header>a, .nav>li>a{
+  color:rgb(189, 189, 189)!important;
+}
+.navbar-header>a:hover, .nav>li>a:hover{
+  color:#ffffff!important;
+}
+body {
+  padding-top: 50px;
+}
