@@ -20,7 +20,7 @@ include("../includes/head.php");
 </head>
 <body>
 
-  <form method="post" action="../controllers/game/insertGame.php">
+  <form method="post" action="../controllers/game/updateDetails.php">
     <p>Hometeam:</p>
     <?php
 
