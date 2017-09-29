@@ -1,7 +1,12 @@
 <?php
 include("../includes/head.php");
 ?>
-<body>
+
+
+  <?php
+  include("../includes/navbar.php");
+  ?>
+  <div class=container>
   <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Total Touchdown</a>
@@ -101,6 +106,7 @@ include("../includes/head.php");
   </div>
   <input type='submit'>
 </form>
+</div>
 </body>
 
 </html>

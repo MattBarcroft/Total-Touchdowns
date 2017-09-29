@@ -1,22 +1,13 @@
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <title>Document</title>
+<?php
+include("../includes/head.php");
+?>
+
+
   <?php
-  include("../includes/init.php");
+  include("../includes/navbar.php");
   ?>
-  <script>
-    $( function() {
-        $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
-    } );
-  </script>
-</head>
-<body>
+  <div class=container>
+
   <form method="post" action="../controllers/game/insertGame.php">
     <p>Hometeam:</p>
     <?php
@@ -46,5 +37,11 @@
     Location: <input type="text" name="location">
     <input type="submit" >
   </form>
+  <script>
+    $( function() {
+        $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    } );
+  </script>
+</div>
 </body>
 </html>

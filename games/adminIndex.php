@@ -1,13 +1,12 @@
 <?php
-include("../includes/init.php");
+include("../includes/head.php");
 ?>
-<html>
-<head>
-  <title>Total touchdowns</title>
 
-</head>
 
-<body>
+  <?php
+  include("../includes/navbar.php");
+  ?>
+  <div class="container">
   <?php
   $weekid = $_GET['week_id'];
 
