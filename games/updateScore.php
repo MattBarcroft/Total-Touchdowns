@@ -20,53 +20,18 @@ include("../includes/head.php");
 </head>
 <body>
 
-  <form method="post" action="../controllers/game/updateDetails.php">
-    <p>Hometeam:</p>
-    <?php
+  <form method="post" action="../controllers/game/updateScore.php">
+  <input type="hidden" name="game_id" value="<?php echo $game_id?>">
+    <p>Hometeam Score:</p>
+        <input type="text" name="hometeamactualscore">
 
-      $teams = new teamsFactory();
-      $rows = $teams->select_all_teams();
+    <p>Awayteam Score:</p>
+        <input type="text" name="awayteamactualscore">
 
-      echo "<select name='hometeam_id'>";
-      foreach ($rows as $row) {
-          if ($r[0]['hometeam_id'] == $row['team_id']) {
-              $selected = "selected";
-          } else {
-              $selected = "";
-          }
-          echo "<option $selected value=".$row['team_id'].">".$row['name']."</option>";
-      };
-      echo "</select>";
-    ?>
-    <p>Awayteam:</p>
-    <?php
-    $teams = new teamsFactory();
-    $rows = $teams->select_all_teams();
-    echo "<select name='awayteam_id'>";
-    foreach ($rows as $row) {
-        if ($r[0]['awayteam_id'] == $row['team_id']) {
-            $selected = "selected";
-        } else {
-            $selected = "";
-        }
-        echo "<option $selected value=".$row['team_id'].">".$row['name']."</option>";
-    };
-    echo "</select>";
-    ?>
-    <br><br>
-    <?php
-    echo "Date: <input type='text' name='kickoff_datetime' id='datepicker'>";
-    ?>
-    <br><br>
-    Week No: <input type="text" name="week_id">
-    <br><br>
-    Location: <input type="text" name="location">
-    <input type="submit" >
-  </form>
-  <script>
-    $( function() {
-        $( "#datepicker" ).datepicker({ defaultDate: <?php echo '"'.$defaultDate.'"'; ?>, dateFormat: 'yy-mm-dd' });
-    } );
-  </script>
+    <p>
+    <br>
+    <input type="submit" value="Submit"></p>
+    </form>
+
 </body>
 </html>

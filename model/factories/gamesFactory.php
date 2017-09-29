@@ -38,17 +38,23 @@ class gamesFactory
       ));
     }
 
-    public function update_game_scores($game)
+    public function update_game_scores($game_id, $hometeamactualscore, $awayteamactualscore)
     {
         $pdo = get_db();
 
+        echo $game_id.PHP_EOL;
+        echo $hometeamactualscore.PHP_EOL;
+        echo $awayteamactualscore.PHP_EOL;
+
+
+
         $r = $pdo->prepare("
           UPDATE TotalTouchdownsDB.Games
-          SET (hometeamactualscore = :hometeamactualscore, awayteamactualscore = :awayteamactualscore)
+          SET hometeamactualscore = :hometeamactualscore, awayteamactualscore = :awayteamactualscore
           WHERE game_id = :game_id");
 
-        $r->execute(array(':hometeamactualscore' => $game->get_hometeamactualscore(),
-        ':awayteamactualscore' => $game->get_awayteamactualscore(), ':game_id' => $game->get_gameid()
+        $r->execute(array(':hometeamactualscore' => $hometeamactualscore,
+        ':awayteamactualscore' => $awayteamactualscore, ':game_id' => $game_id
       ));
     }
 

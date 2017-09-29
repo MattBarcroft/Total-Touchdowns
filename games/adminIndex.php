@@ -27,7 +27,7 @@ include("../includes/head.php");
   echo "<th>Location</th>";
   echo "<th>Delete</th>";
   echo "<th>Update Details</th>";
-  echo "<th>Update Scores</th></tr>";
+  echo "<th>Update Score</th></tr>";
 
   foreach ($rows as $row) {
       echo "<tr><td>".$row['game_id']."</td>";
@@ -38,7 +38,7 @@ include("../includes/head.php");
       echo "<td>".$row['location']."</td>";
       echo "<td><a href=delete.php?game_id=".$row['game_id'].">"."Delete</a></td>";
       echo "<td><a href=updateDetails.php?game_id=".$row['game_id'].">"."Update Details</a></td>";
-      echo "<td><a href=updateScores.php?game_id=".$row['game_id'].">"."Update Scores</a></td>";
+      echo "<td><a href=updateScore.php?game_id=".$row['game_id'].">"."Update Score</a></td>";
   }
   echo "</table>";
   ?>
