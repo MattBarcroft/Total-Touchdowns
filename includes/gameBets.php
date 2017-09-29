@@ -33,7 +33,8 @@
                 </div>
                 <div class="flex-direction-column flex-grow">
                   <?php
-                  echo "<input class='form-control input-bet-scores' value='0' id='htscore-game-".$row['game_id']."' name='htscore-game-".$row['game_id']."' type='text'>"; ?>
+                  echo "<input name='gameid-".$row['game_id']."' value='".$row['game_id']."' type='hidden'>";
+          echo "<input class='form-control input-bet-scores' value='0' id='htscore-game-".$row['game_id']."' name='htscore-game-".$row['game_id']."' type='text'>"; ?>
                 </div>
               </div>
               <div class="flex-direction-row flex-grow score-controls">

@@ -1,18 +1,16 @@
 <?php
 include("../../includes/init.php");
 
-
-var_dump($_POST);
-echo "<br><br>";
-
 $db = get_db();
 
-//$pdo = $db->execute()
-//insert row into bet, get user id by session
-for ($i=1; $i <= count($_POST); $i++) {
-  echo "gameid = $i";
-  echo $_POST["htscore-game-$i"];
-  echo $_POST["atscore-game-$i"];
-}
+var_dump($_POST);
+
+$user_id = 1;
+
+$betsFactory = new betsFactory();
+
+$bet_id = $betsFactory->insert_new_bet($user_id);
+
+$betsFactory->insert_selections($bet_id, $_POST);
 
 //header("Location: /games/index.php");
