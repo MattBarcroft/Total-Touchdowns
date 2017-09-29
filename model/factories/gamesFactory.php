@@ -53,8 +53,16 @@ class gamesFactory
     }
 
     public function delete_game($game_id)
+    
     {
-        //DELETE FLAG
+          $pdo = get_db();
+  
+          $r = $pdo->prepare("
+          DELETE FROM TotalTouchdownsDB.Games
+          WHERE game_id = :game_id");
+          
+          $r->execute(array(':game_id' => $game_id));
+    
     }
 
     public function select_single_game($game_id)
@@ -62,7 +70,7 @@ class gamesFactory
         $pdo = get_db();
 
         $r = $pdo->prepare("
-          SELECT gm.hometeam_id, htm.name, gm.awayteam_id, atm.name, gm.hometeamactualscore, gm.awayteamactualscore,
+          SELECT gm.game_id, gm.hometeam_id, htm.name, gm.awayteam_id, atm.name, gm.hometeamactualscore, gm.awayteamactualscore,
           gm.kickoff_datetime, gm.week_id, gm.location
           FROM TotalTouchdownsDB.Games gm
           LEFT JOIN TotalTouchdownsDB.Teams htm
