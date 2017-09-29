@@ -1,22 +1,20 @@
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+<?php
+include("../includes/head.php");
+?>
+
+
   <?php
-    include("../includes/init.php");
-   ?>
-</head>
-<body>
+  include("../includes/navbar.php");
+  ?>
+  <div class="container">
   <form method="get" action="../teams/update.php">
     Team Name:
   <select name="team_id">
     <?php
         $teams = new teamsFactory();
         $rows = $teams->select_all_teams();
-        foreach($rows as $row){
-             echo "<option value=".$row['team_id'].">".$row['name']."</option>";
+        foreach ($rows as $row) {
+            echo "<option value=".$row['team_id'].">".$row['name']."</option>";
         }
      ?>
 

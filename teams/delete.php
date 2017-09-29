@@ -1,14 +1,12 @@
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+<?php
+include("../includes/head.php");
+?>
+
+
   <?php
-    include("../includes/init.php");
-   ?>
-</head>
-<body>
+  include("../includes/navbar.php");
+  ?>
+  <div class="container">
   <h1>Are you sure you want to delete this? </h1>
   <form method="post" action="../controllers/team/deleteTeam.php">
     Team Name:

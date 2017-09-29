@@ -48,7 +48,7 @@ class gamesFactory
           WHERE game_id = :game_id");
 
         $r->execute(array(':hometeamactualscore' => $game->get_hometeamactualscore(),
-        ':awayteamactualscore' => $game->get_awayteamactualscore()
+        ':awayteamactualscore' => $game->get_awayteamactualscore(), ':game_id' => $game->get_gameid()
       ));
     }
 

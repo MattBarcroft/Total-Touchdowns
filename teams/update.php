@@ -1,11 +1,12 @@
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
+<?php
+include("../includes/head.php");
+?>
+
+
+  <?php
+  include("../includes/navbar.php");
+  ?>
+  <div class="container">
   <form method="post" action="../controllers/team/updateTeam.php">
     <input value="<?php echo $_GET['team_id']; ?>" type="hidden" name="team_id">
     Team Name: <input type="text" name="teamname">
