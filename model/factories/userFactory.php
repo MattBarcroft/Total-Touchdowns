@@ -13,7 +13,16 @@ class userFactory {
             ':email' => $user->get_useremail(),':rgoptout' => 0));
 
   }
+function getcurrentuserid(){
+$pdo = get_db();
+$r = $pdo->prepare("select user_id from TotalTouchdownsDB.users where username = :username");
 
+$r->execute(array(':username' => $_COOKIE['username']));
+$userid = $r->fetch(PDO::FETCH_NUM);
+
+return $userid[0];
+
+}
 //   function checkUsername($username){
 //     $pdo = get_db();
 //

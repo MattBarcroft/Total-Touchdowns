@@ -37,7 +37,7 @@ class betsFactory
         $r->execute(array(':bet_id' => $bet_id));
     }
 
-    public function select_single_bet($game_id)
+    public function select_single_bet($bet_id)
     {
         $pdo = get_db();
 
@@ -79,24 +79,20 @@ class betsFactory
     {
         $pdo = get_db();
 
-        $r = $pdo->prepare();
-
-
         $str_query = "insert into TotalTouchdownsDB.Selections (bet_id, game_id, hometeamscore, awayteamscore)
-      Values(?, ?, ?, ?)";
-
+      Values";
 
         $startinggameid = reset($selections);
-        $vals = "";
-        for ($i=$startinggameid; $i < ($startinggameid+(count($_POST)/3)-1); $i++) {
-            //$vals = $vals . "(" . "$bet_id, " . $selections["gameid-$i"] . ", " . $selections["htscore-game-$i"] . ", " . $selections["atscore-game-$i"] . "), ";
+
+        for ($i=$startinggameid; $i < ($startinggameid+(count($_POST)/3)); $i++) {
+            $stmt = $pdo->prepare("insert into TotalTouchdownsDB.Selections
+            (bet_id, game_id, hometeamscore, awayteamscore)
+            Values (:betid, :gameid, :htscore, :atscore)");
+
+            $stmt->execute(array(':betid' => $bet_id, ':gameid' => $selections["gameid-$i"],
+          ':htscore' => $selections["htscore-game-$i"], ':atscore' => $selections["atscore-game-$i"]));
+
         }
 
-        //   $startinggameid += (count($selections)/3)-1;
-        //   $vals = $vals .  "(" . "$bet_id, " . $selections["gameid-$startinggameid"] . ", "
-        // . $selections["htscore-game-$startinggameid"] . ", " .
-        // $selections["atscore-game-$startinggameid"] . ")";
-        //   echo "<br>";
-        echo $str_query . $vals;
     }
 }
