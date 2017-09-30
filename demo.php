@@ -1,29 +1,57 @@
-<!doctype html>
-<html lang = "en">
-   <head>
-      <meta charset = "utf-8">
-      <title>jQuery UI Spinner functionality</title>
-      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-         rel = "stylesheet">
-      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
-      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-      <!-- CSS -->
-      <style type = "text/css">
-         #spinner-1 input {width: 20px}
-      </style>
-      <!-- Javascript -->
-      <script>
-         $(function() {
-            $( "#spinner-1" ).spinner();
-         });
-      </script>
-   </head>
+<!DOCTYPE html>
+<html>
+<body>
 
-   <body>
-      <!-- HTML -->
-      <div id = "example">
-         <input type = "text" id = "spinner-1" value = "0" />
-      </div>
-   </body>
+<?php
+
+class obj
+{
+    public $favcolor;
+    public $favobj;
+
+    public function set_favcolor($favcolor)
+    {
+        $this->favcolor = $favcolor;
+    }
+    public function get_favcolor()
+    {
+        return $this->favcolor;
+    }
+    public function set_favobj($favobj)
+    {
+        $this->favobj = $favobj;
+    }
+    public function get_favobj()
+    {
+        return $this->favobj;
+    }
+}
+
+$favcolor = "blue";
+$favobj = "penn";
+
+$object = new obj();
+$object->set_favcolor($favcolor);
+$object->set_favobj($favobj);
+
+
+
+
+switch ($object) {
+    case ($object->get_favobj() == 'pen' && $object->get_favcolor() == 'blue'):
+        echo "Your favorite color is red!";
+        break;
+    case ['blue','pen']:
+        echo "Your favorite color is blue!";
+        break;
+    case "green":
+        echo "Your favorite color is green!";
+        break;
+    default:
+        echo "Your favorite color is neither red, blue, nor green!";
+}
+?>
+
+</body>
 </html>
