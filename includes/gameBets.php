@@ -51,12 +51,16 @@
           </div>
         </div>
         <?php
-      } ?>
+      }
+
+if (isset($_COOKIE['username'])) {
+      ?>
       <div class="flex-direction-row full-width">
         <div class="align-right">
           <input type="submit" class="btn btn-primary" value="Place Bets">
         </div>
       </div>
+<?}else echo "<p>Please log in to bet</p>"?>
     </div>
 
   </div>

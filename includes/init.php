@@ -1,7 +1,7 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
+//if (session_status() != PHP_SESSION_NONE && session_status() != PHP_SESSION_DISABLED) {
 session_start();
-}
+//}
 
 
 spl_autoload_register(function($classname){
