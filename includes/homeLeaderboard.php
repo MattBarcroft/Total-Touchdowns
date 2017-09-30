@@ -5,25 +5,15 @@
     <th>Name</th>
     <th>Points</th>
   </tr>
-  <tr>
-    <td>Entry First Line 3</td>
-    <td>Entry First Line 4</td>
-  </tr>
-  <tr>
-    <td>Entry Line 3</td>
-    <td>Entry Line 4</td>
-  </tr>
-  <tr>
-    <td>Entry Last Line 3</td>
-    <td>Entry Last Line 4</td>
-  </tr>
-  <tr>
-    <td>Entry Last Line 3</td>
-    <td>Entry Last Line 4</td>
-  </tr>
-  <tr>
-    <td>Entry Last Line 3</td>
-    <td>Entry Last Line 4</td>
-  </tr>
+  <?php
+    $leaderboardFactory = new leaderboardFactory();
+    $rows = $leaderboardFactory->get_top_10_leaderboard();
+    foreach ($rows as $row) {
+        echo "<tr><td>".$row['totalpoints']."</td>";
+        echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+        echo "<tr>";
+    }
+
+?>
 </table>
 </div>

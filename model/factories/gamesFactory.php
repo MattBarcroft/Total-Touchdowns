@@ -59,16 +59,14 @@ class gamesFactory
     }
 
     public function delete_game($game_id)
-    
     {
-          $pdo = get_db();
-  
-          $r = $pdo->prepare("
+        $pdo = get_db();
+
+        $r = $pdo->prepare("
           DELETE FROM TotalTouchdownsDB.Games
           WHERE game_id = :game_id");
-          
-          $r->execute(array(':game_id' => $game_id));
-    
+
+        $r->execute(array(':game_id' => $game_id));
     }
 
     public function select_single_game($game_id)
