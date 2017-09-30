@@ -13,24 +13,24 @@
 	<div class="collapse navbar-collapse">
 		<ul class="nav navbar-nav pull-right">
 			<?php if (isset($_COOKIE["username"])) {
-				?>
+    ?>
 			<li><a href="">
              <span class="glyphicon glyphicon-user"></span>&nbsp;
-						 <span class="visible-lg-inline visible-md-inline"><?echo$_COOKIE["username"]?></span>
+						 <span class="visible-lg-inline visible-md-inline"><?echo $_COOKIE["username"];?></span>
         </a></li>
 				<li><a href="../users/logout.php">
 							 <span class="visible-lg-inline visible-md-inline">Log Out</span>
 	        </a></li>
-			<?
-		} else {
-				?>
+			<?php
+} else {
+        ?>
 			<li><a href="../users/login.php">
              <span class="glyphicon glyphicon-user"></span>&nbsp;
 						 <span class="visible-lg-inline visible-md-inline">Login/Register</span>
         </a></li>
-				<?
-			}
-				?>
+				<?php
+    };
+                ?>
 		</ul>
 </div>
 	</div>

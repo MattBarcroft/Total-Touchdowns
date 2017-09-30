@@ -4,17 +4,16 @@ session_start();
 //}
 
 
-spl_autoload_register(function($classname){
-        if(file_exists($_SERVER['DOCUMENT_ROOT']."/model/classes/"."$classname.php")){
-            Require $_SERVER['DOCUMENT_ROOT']."/model/classes/"."$classname.php";
-        }
-        else {
-            Require $_SERVER['DOCUMENT_ROOT']."/model/factories/"."$classname.php";
-        }
+spl_autoload_register(function ($classname) {
+    if (file_exists($_SERVER['DOCUMENT_ROOT']."/model/classes/"."$classname.php")) {
+        require $_SERVER['DOCUMENT_ROOT']."/model/classes/"."$classname.php";
+    } else {
+        require $_SERVER['DOCUMENT_ROOT']."/model/factories/"."$classname.php";
+    }
 });
 
-function get_db(){
-
+function get_db()
+{
     $host ='127.0.0.1';
     $db = 'TotalTouchdownsDB';
     $userdb = 'user1';
@@ -23,6 +22,4 @@ function get_db(){
     $dsn = "mysql:host=$host; dbname=$db";
     $pdo = new PDO($dsn, $userdb, $pass);
     return $pdo;
-
 }
- ?>
