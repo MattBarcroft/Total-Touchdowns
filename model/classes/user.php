@@ -12,13 +12,30 @@ class user {
   public $usertotalscore;
   public $userrgoptout;
 
-  function __construct($username, $userfirstname, $userlastname, $useraddress, $useremail, $userpassword){
+  function __construct(){
+  }
+
+  function user_construct($username, $userfirstname, $userlastname, $useraddress, $useremail, $userpassword) {
     $this->username = $username;
     $this->userfirstname = $userfirstname;
     $this->userlastname = $userlastname;
     $this->useraddress = $useraddress;
     $this->userpassword = $userpassword;
     $this->useremail = $useremail;
+  }
+  function user_constructAll($userid, $username, $userfirstname, $userlastname, $useraddress, $useremail,
+  $userpassword, $useraccountcreated, $useraccountmodified, $usertotalscore, $userrgoptout){
+    $this->userid = $userid;
+    $this->username = $username;
+    $this->userfirstname = $userfirstname;
+    $this->userlastname = $userlastname;
+    $this->useraddress = $useraddress;
+    $this->userpassword = $userpassword;
+    $this->useremail = $useremail;
+    $this->useraccountcreated = $useraccountcreated;
+    $this->useraccountmodified = $useraccountmodified;
+    $this->usertotalscore = $usertotalscore;
+    $this->userrgoptout = $userrgoptout;
   }
 
 

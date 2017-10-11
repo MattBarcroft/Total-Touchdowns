@@ -1,5 +1,4 @@
 <?php
-//namespaces $_SESSION["userId"] = $user->id; redirectwithmessage
 include("../../includes/init.php");
 
 $username = $_POST["username"];

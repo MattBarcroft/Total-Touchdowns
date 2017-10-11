@@ -14,7 +14,7 @@
 		<ul class="nav navbar-nav pull-right">
 			<?php if (isset($_COOKIE["username"])) {
     ?>
-			<li><a href="">
+			<li><a href="../users/details.php">
              <span class="glyphicon glyphicon-user"></span>&nbsp;
 						 <span class="visible-lg-inline visible-md-inline"><?echo $_COOKIE["username"];?></span>
         </a></li>

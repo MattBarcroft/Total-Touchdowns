@@ -3,31 +3,31 @@ class loginfactory{
   //include("../../includes/init.php");
 
 function check_login($username, $password){
-$pdo = get_db();
-//todo chancge db to include username and update query below
+  $pdo = get_db();
+  //todo chancge db to include username and update query below
 
-$r = $pdo->prepare("select * from TotalTouchdownsDB.Users
-where username = :username");
+  $r = $pdo->prepare("select * from TotalTouchdownsDB.Users
+  where username = :username");
 
-$r->execute(array(':username' => $username));
+  $r->execute(array(':username' => $username));
 
-$r = $r->fetch(PDO::FETCH_OBJ);
+  $r = $r->fetch(PDO::FETCH_OBJ);
 
-$user = new user($r->username, $r->firstname, $r->lastname, $r->address, $r->email, $r->password);
-
-return $user->verify_password($password);
+  $user = new user();
+  $user->user_construct($r->username, $r->firstname, $r->lastname, $r->address, $r->email, $r->password);
+  return $user->verify_password($password);
 
 
 }
 
 function create_session($username, $password){
-
-$password = password_hash($password, PASSWORD_DEFAULT );
+  $password = password_hash($password, PASSWORD_DEFAULT );
   $_SESSION["username"] = $username;
   $_SESSION["password"] = $password;
 
-setcookie("username", $_SESSION["username"], time()+60*60, "/");
-setcookie("password", $_SESSION["password"], time()+60*60, "/");
+  setcookie("username", $_SESSION["username"], time()+60*60, "/");
+  setcookie("password", $_SESSION["password"], time()+60*60, "/");
+
 return;
 }
 

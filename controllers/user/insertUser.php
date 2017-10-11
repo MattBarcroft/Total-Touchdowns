@@ -10,8 +10,8 @@ $password = $_POST["password"];
 
 $password = password_hash($password, PASSWORD_DEFAULT);
 
-$user = new user($username, $firstname, $lastname, $address, $email, $password);
-
+$user = new user();
+$user->user_Construct($username, $firstname, $lastname, $address, $email, $password);
 
 
 $userFactory = new userFactory();

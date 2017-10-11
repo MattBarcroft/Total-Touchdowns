@@ -23,35 +23,28 @@ $userid = $r->fetch(PDO::FETCH_NUM);
 return $userid[0];
 
 }
-//   function checkUsername($username){
-//     $pdo = get_db();
-//
-//     $r = $pdo->prepare("select username from TotalTouchdownsDB.User where username = :username");
-//     $r->execute(array(':username' => $username));
-//
-//     $obj = $r->fetch(PDO::FETCH_OBJ);
-// echo $obj->username;
-//     if (!is_null($obj->username)) {
-//       return false;
-//     }
-//     else return true;
-//   }
 
-  // function getSingleUser($userid){
-  //   $pdo = getDB();
-  //   $r = $pdo->prepare("select user_id, firstname, lastname, address, password, email, accountcreated, rgoptout
-  //    from TotalTouchdownsDB.User
-  //    where userid = :userid
-  //    limit 1");
-  //
-  //   $r->execute(':userid' => $userid);
-  //   $dataRow = $r->fetch(PDO::FETCH_OBJ);
-  //
-  //
-  //   $user = new user();
-  //
-  //   return $user;
-  // }
+function getCurrentUser(){
+  if (isset($_COOKIE['username'])) {
+    $pdo = get_db();
+
+    $r = $pdo->prepare("select user_id, username, firstname, lastname, address, password,
+    email, accountcreated, totalscore, rgoptout from TotalTouchdownsDB.users where username = :username");
+
+    $r->execute(array(':username' => $_COOKIE['username']));
+    $user = new user();
+    $userArr = $r->fetchAll();
+
+    //$username, $userfirstname, $userlastname, $useraddress, $useremail,
+    //$userpassword, $useraccountcreated, $useraccountmodified, $usertotalscore, $userrgoptout
+    $user->user_constructAll($userArr[0]["user_id"], $userArr[0]["username"], $userArr[0]["firstname"], $userArr[0]["lastname"],
+    $userArr[0]["address"], $userArr[0]["email"], $userArr[0]["password"], $userArr[0]["accountcreated"],
+    $userArr[0]["accountmodified"], $userArr[0]["usertotalscore"], $userArr[0]["userrgoptout"]);
+
+    return $user;
+
+  }
+}
 
   function getAllUsers(){
     $pdo = get_db();
@@ -63,17 +56,18 @@ return $userid[0];
     return $r;
 
   }
-  //
-  // function updateUser(){
-  //
-  // }
-  //
-  // function deleteUser(){
-  //
-  // }
+  function optout($uid){
+    $pdo = get_db();
 
+    $r = $pdo->prepare("
+        Update TotalTouchdownsDB
+        set rgoptout = 1
+        where user_id = :uid");
+
+    $r->execute(array(':uid' => $uid));
+    $_COOKIE['optout'] = 1;
+  }
 
 }
-
 
  ?>
