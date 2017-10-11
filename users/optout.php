@@ -1,19 +1,19 @@
 <?php
-include("../../includes/head.php");
-include("../../includes/navbar.php");
+  include("../includes/head.php");
+  include("../includes/navbar.php");
 
-$uf = new userFactory();
-$u = $uf->getCurrentUser();
+  $uf = new userFactory();
+  $u = $uf->getCurrentUser();
 
-$uf->optout($u->userid);
+  $uf->optout($u->userid);
 
- ?>
+?>
 
  <!DOCTYPE html>
  <html>
    <head>
      <meta charset="utf-8">
-
+     <h1>Opt Out</h1>
    </head>
    <body>
      <div class="container">
@@ -21,4 +21,3 @@ $uf->optout($u->userid);
      </div>
    </body>
  </html>
- <body>

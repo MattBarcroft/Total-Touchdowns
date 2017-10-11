@@ -60,12 +60,13 @@ function getCurrentUser(){
     $pdo = get_db();
 
     $r = $pdo->prepare("
-        Update TotalTouchdownsDB
+        Update TotalTouchdownsDB.Users
         set rgoptout = 1
         where user_id = :uid");
 
     $r->execute(array(':uid' => $uid));
-    $_COOKIE['optout'] = 1;
+    //$_COOKIE['optout'] = 1;
+    return;
   }
 
 }

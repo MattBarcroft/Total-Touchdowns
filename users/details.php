@@ -43,7 +43,7 @@ $user = $userFactory->getCurrentUser();
 
       <div class="container">
       <h2>Responsible Gambling</h2>
-      <form action="../controllers/user/optout.php">
+      <form action="../users/optout.php">
       <input type="submit" name="" value="Opt out">
       </form>
       </div>
