@@ -92,7 +92,10 @@ class gamesFactory
         $pdo = get_db();
 
         $r = $pdo->prepare("
-          SELECT gm.game_id, gm.hometeam_id, htm.name as htname, gm.awayteam_id, atm.name as atname, gm.hometeamactualscore, gm.awayteamactualscore,
+          SELECT
+          gm.game_id, gm.hometeam_id, htm.name as htname,
+          gm.awayteam_id, atm.name as atname, gm.hometeamactualscore, gm.awayteamactualscore,
+          htm.logo as htlogo, atm.logo as atlogo,
           gm.kickoff_datetime, gm.week_id, gm.location
           FROM TotalTouchdownsDB.Games gm
           LEFT JOIN TotalTouchdownsDB.Teams htm

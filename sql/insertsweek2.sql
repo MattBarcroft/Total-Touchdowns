@@ -1,3 +1,5 @@
+use TotalTouchdownsDB;
+
 INSERT INTO games
 (
 

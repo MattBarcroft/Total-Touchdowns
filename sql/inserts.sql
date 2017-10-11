@@ -1,3 +1,5 @@
+use TotalTouchdownsDB;
+
 INSERT INTO users
 (
 username,
@@ -104,21 +106,42 @@ VALUES
 
 INSERT INTO teams
 (
-name
-
+name,
+logo
 )
 VALUES
-    ("Arizona Cardinals"),
-    ("Atlanta Falcons"),
-    ("Baltimore Ravens"),
-    ("Buffalo Bills"),
-    ("Chicago Bears"),
-    ("Cincinnati Bengals"),
-    ("Dallas Cowboys"),
-    ("Denver Broncos"),
-    ("Houston Texans"),
-    ("Miami Dolphins")
-    ;
+    ("Arizona Cardinals", "logo/cardinals.gif"),
+    ("Atlanta Falcons", "logo/falcons.gif"),
+    ("Baltimore Ravens", "logo/ravens.gif"),
+    ("Buffalo Bills", "logo/bills.gif"),
+    ("Carolina Panthers", "logo/panthers.gif"),
+    ("Chicago Bears", "logo/bears.gif"),
+    ("Cincinnati Bengals", "logo/bengals.gif"),
+    ("Cleveland Browns", "logo/browns.gif"),
+    ("Dallas Cowboys", "logo/cowboys.gif"),
+    ("Denver Broncos", "logo/broncos.gif"),
+    ("Detroit Lions", "logo/lions.gif"),
+    ("Green Bay Packers", "logo/packers.gif"),
+    ("Houston Texans", "logo/texans.gif"),
+    ("Indianapolis Colts", "logo/colts.gif"),
+    ("Jacksonville Jaguars", "logo/jaguars.gif"),
+    ("Kansas City Chiefs", "logo/chiefs.gif"),
+    ("Los Angeles Chargers", "logo/chargers.gif"),
+    ("Los Angeles Rams", "logo/rams.gif"),
+    ("Miami Dolphins", "logo/dolphins.gif"),
+    ("Minnesota Vikings", "logo/vikings.gif"),
+    ("New Orlean Saints", "logo/saints.gif"),
+    ("New England Patriots", "logo/patriots.gif"),
+    ("New York Jets", "logo/jets.gif"),
+    ("New York Giants", "logo/giants.gif"),
+    ("Oakland Raiders", "logo/raiders.gif"),
+    ("Philidelphia Eagles", "logo/eagles.gif"),
+    ("Pittsburgh Steelers", "logo/steelers.gif"),
+    ("San Francisco 49ers", "logo/49ers.gif"),
+    ("Seatle Seahawks", "logo/seahawks.gif"),
+    ("Tampa Bay Buccanneers", "logo/bucaneers.gif"),
+    ("Tennessee Titans", "logo/titans.gif"),
+    ("Washington Redskins", "logo/redskins.gif");
 
 INSERT INTO games
 (

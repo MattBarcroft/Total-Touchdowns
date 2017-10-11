@@ -1,8 +1,16 @@
 
+Create Database TotalTouchdownsDB;
+
+/* create user 'user1'@'localhost' identified by 'mypass';
+
+grant select, insert, update, delete, create, drop on TotalTouchdown.* to 'user1'@'localhost';
+*/
+use TotalTouchdownsDB;
 CREATE TABLE Teams
 (
 	team_id int NOT NULL AUTO_INCREMENT,
-  	name varchar(50) NOT NULL,
+  	name varchar(250) NOT NULL,
+		logo varchar(50),
   	CONSTRAINT PK_teams_pk PRIMARY KEY (team_id)
 );
 
@@ -27,10 +35,10 @@ CREATE TABLE Games
 CREATE TABLE Users
 (
 	user_id  int NOT NULL AUTO_INCREMENT,
-	username varchar(25) NOT NULL,
-	firstname varchar(30) NOT NULL,
-	lastname varchar(30) NOT NULL,
-	address varchar(20) NOT NULL,
+	username varchar(100) NOT NULL,
+	firstname varchar(100) NOT NULL,
+	lastname varchar(100) NOT NULL,
+	address varchar(500) NOT NULL,
 	password varchar(100) NOT NULL,
 	email varchar(50) NOT NULL,
 	accountcreated DATETIME DEFAULT   CURRENT_TIMESTAMP,

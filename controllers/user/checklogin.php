@@ -7,8 +7,9 @@ $password = $_POST["password"];
 
 $loginfactory = new loginfactory();
 $bool = $loginfactory->check_login($username, $password);
-$loginfactory->create_session($username, $password);
+
 if ($bool == true) {
+  $loginfactory->create_session($username, $password);
   header("Location: ../../index.php");
 }
 else {

@@ -30,7 +30,7 @@ include("includes/head.php");
   if (isset($weekid)) {
       $rows = $games->select_games_by_week($weekid);
   } else {
-      $rows = $games->select_all_games();
+      $rows = $games->select_games_by_week(1);
   }
   ?>
     <!-- Page Content -->

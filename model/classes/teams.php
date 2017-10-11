@@ -3,6 +3,7 @@ class teams
 {
     public $teamid;
     public $teamname;
+    public $teamlogo;
 
     public function __construct($teamname)
     {
@@ -28,5 +29,15 @@ class teams
     public function get_teamname()
     {
         return $this->teamname;
+    }
+
+    //getter and setter for teamlogo
+    public function set_teamlogo($teamlogo)
+    {
+        $this->teamlogo = $teamlogo;
+    }
+    public function get_teamlogo()
+    {
+        return $this->teamlogo;
     }
 }

@@ -23,10 +23,16 @@ include("../includes/navbar.php");
   <input type="submit" name="" value="Register">
 </form>
   </div>
+<?if (isset($_COOKIE['user'])) {
+  ?>
+
+  <div class="container">
+  <h2>Responsible Gambling</h2>
+  <form action="">
+  <input type="submit" name="" value="Opt out">
+  </form>
+  </div>
+<? } ?>
 
 </body>
 </html>
-<?php
-
-
- ?>

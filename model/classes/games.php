@@ -9,6 +9,8 @@ class games
     public $kickoff_datetime;
     public $location;
     public $week_id;
+    public $hometeamlogo;
+    public $awayteamlogo;
 
 
     public function __construct($hometeamid, $awayteamid, $kickoff_datetime, $week_id, $location)
@@ -97,5 +99,25 @@ class games
     public function get_weekid()
     {
         return $this->week_id;
+    }
+
+    //getter and setter for home team logo
+    public function set_hometeamlogo($hometeamlogo)
+    {
+        $this->hometeamlogo = $hometeamlogo;
+    }
+    public function get_hometeamlogo()
+    {
+        return $this->hometeamlogo;
+    }
+
+    //getter and setter for away team logo
+    public function set_awayteamlogo($awayteamlogo)
+    {
+        $this->awayteamlogo = $awayteamlogo;
+    }
+    public function get_awayteamlogo()
+    {
+        return $this->awayteamlogo;
     }
 }
