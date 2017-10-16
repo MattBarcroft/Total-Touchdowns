@@ -1,13 +1,13 @@
 <?php
-$command = "mysql -uroot < /Users/cjo01/Documents/Total-Touchdowns/sql/createDB.sql";
+$command = "mysql -uroot < ".__DIR__."/createDB.sql";
 
 $output = shell_exec($command);
 
-$command = "mysql -uroot < /Users/cjo01/Documents/Total-Touchdowns/sql/inserts.sql";
+$command = "mysql -uroot < ".__DIR__."/inserts.sql";
 
 $output = shell_exec($command);
 
-$command = "mysql -uroot < /Users/cjo01/Documents/Total-Touchdowns/sql/insertsweek2.sql";
+$command = "mysql -uroot < ".__DIR__."/insertsweek2.sql";
 
 $output = shell_exec($command);
 

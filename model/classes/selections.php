@@ -1,11 +1,12 @@
 <?php
-class selection
+class selections
 {
     public $selection_id;
     public $bet_id;
     public $game_id;
     public $hometeamactualscore;
     public $awayteamactualscore;
+    public $pointsawarded;
 
     //getter and setter for selectionid
     public function get_selectionid()
@@ -14,17 +15,17 @@ class selection
     }
     public function set_selectionid($selection_id)
     {
-        $this->selectionid = $selection_id;
+        $this->selection_id = $selection_id;
     }
 
     //getter and setter for betid
     public function get_betid()
     {
-        return $this->betid;
+        return $this->bet_id;
     }
-    public function set_betid($betid)
+    public function set_betid($bet_id)
     {
-        $this->betid = $betid;
+        $this->bet_id = $bet_id;
     }
 
     //getter and setter for game_id
@@ -58,6 +59,16 @@ class selection
     }
     public function set_awayteamactualscore($awayteamactualscore)
     {
-        $this->awayteamactualscore = $hometeamactualscore;
+        $this->awayteamactualscore = $awayteamactualscore;
+    }
+
+    //getter and setter for $hometeamactualscore
+    public function get_pointsawarded()
+    {
+        return $this->pointsawarded;
+    }
+    public function set_pointsawarded($pointsawarded)
+    {
+        $this->pointsawarded = $pointsawarded;
     }
 }

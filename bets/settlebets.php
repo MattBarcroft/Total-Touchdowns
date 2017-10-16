@@ -11,58 +11,43 @@ include("../includes/head.php");
       $settlingbetsFactory = new settlingbetsFactory();
       $rows = $settlingbetsFactory->get_unsettled_bets();
       ?>
+      <h3>Bets Updated</h3>
       <table class="table">
+      <tr>
+        <th>Bet Id</th>
+        <th>Selection Id</th>
+        <th>Game Id</th>
+        <th>Points Awarded</th>
+      </tr>
         <?php
     foreach ($rows as $row) {
-        $bet = new bet();
+        $selections = new selections();
 
-        $bet->set_selection($row['selection_id']);
-        $bet->set_betid($row['bet_id']);
-        $bet->set_gameid($row['game_id']);
-        $bet->set_hometeamactualscore($row['hometeamscore']);
-        $bet->set_awayteamactualscore($row['awayteamscore']);
+        $selections->set_selectionid($row['selection_id']);
+        $selections->set_betid($row['bet_id']);
+        $selections->set_gameid($row['game_id']);
+        $selections->set_hometeamactualscore($row['hometeamscore']);
+        $selections->set_awayteamactualscore($row['awayteamscore']);
 
         $gamesFactory = new gamesFactory();
-        $single_game = $gamesFactory->select_single_game($bet->get_gameid());
+        $single_game = $gamesFactory->select_single_game($selections->get_gameid());
 
         $r = $single_game->fetchAll();
 
-        var_dump($r);
-        // $game = new game();
-        // $game->set_gameid($r[0]['game_id']);
-        // $game->set_hometeamactualscore($r[0]['hometeamactualscore']);
-        // $game->set_awayteamactualscore($r[0]['awayteamactualscore']);
-        // $game->set_week_id($r[0]['week_id']);
+        $game = new games($r[0]['hometeam_id'], $r[0]['awayteam_id'], $r[0]['kickoff_datetime'], $r[0]['week_id'], $r[0]['location']);
+        $game->set_gameid($r[0]['game_id']);
+        $game->set_hometeamactualscore($r[0]['hometeamactualscore']);
+        $game->set_awayteamactualscore($r[0]['awayteamactualscore']);
+
+        $selections->set_pointsawarded($settlingbetsFactory->calculate_points_awarded($game, $selections));
+
+        $settlingbetsFactory->update_bet_with_points($selections);
 
 
-
-
-
-
-
-
-
-        switch ($favcolor) {
-            case "red":
-                echo "Your favorite color is red!";
-                break;
-            case "blue":
-                echo "Your favorite color is blue!";
-                break;
-            case "green":
-                echo "Your favorite color is green!";
-                break;
-            default:
-                echo "Your favorite color is neither red, blue, nor green!";
-        }
-
-        echo "<tr><td>".$row['bet_id']."</td>";
-        echo "<td>".$row['game_id']."</td>";
-        echo "<td>".$row['hometeamscore']."</td>";
-        echo "<td>".$row['awayteamscore']."</td>";
-        echo "<td>".$row['hometeamactualscore']."</td>";
-        echo "<td>".$row['awayteamactualscore']."</td>";
-        echo "<td>".$row['pointsawarded']."</td>";
+        echo "<tr><td>".$selections->get_betid()."</td>";
+        echo "<td>".$selections->get_selectionid()."</td>";
+        echo "<td>".$game->get_gameid()."</td>";
+        echo "<td>".$selections->get_pointsawarded()."</td>";
         echo "<tr>";
     };
           ?>

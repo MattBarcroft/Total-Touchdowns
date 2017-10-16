@@ -13,14 +13,14 @@
           echo " At ". $row['location']; ?>
             </p>
             <div class="col-md-4">
-              <img class="card-img-top" src="/content/images/<?echo $row['htlogo'];?>"  alt="">
+              <img class="card-img-top" src="/content/images/<?php echo $row['htlogo'];?>"  alt="">
               <h6 class="card-title"><?php echo $row['htname']; ?></h6>
             </div>
             <div class="col-md-4 container-vs">
               <h4>V</h4>
             </div>
             <div class="col-md-4">
-              <img class="card-img-top" src="/content/images/<?echo $row['atlogo'];?>"  alt="">
+              <img class="card-img-top" src="/content/images/<?php echo $row['atlogo'];?>"  alt="">
               <h6 class="card-title"><?php echo $row['atname']; ?></h6>
             </div>
             <div class="card-body">
