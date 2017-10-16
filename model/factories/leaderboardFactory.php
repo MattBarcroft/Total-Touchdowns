@@ -6,13 +6,16 @@ class leaderboardFactory
         $pdo = get_db();
 
         $r = $pdo->prepare("
-    SELECT TOP 10 usr.firstname, usr.lastname, SUM(sel.pointsawarded) as totalpoints FROM TotalTouchdownsDB.Selections sel
-    JOIN TotalTouchdownsDB.Bets bet
-    ON bet.bet_id = sel.bet_id
-    JOIN TotalTouchdownsDB.Users usr
-    ON bet.user_id = usr.user_id
-    GROUP BY usr.firstname, usr.lastname
-    ORDER BY SUM(sel.pointsawarded) DESC
+        SELECT usr.firstname, usr.lastname, 
+        SUM(sel.pointsawarded) as totalpoints 
+        FROM TotalTouchdownsDB.Selections sel
+        JOIN TotalTouchdownsDB.Bets bet
+        ON bet.bet_id = sel.bet_id
+        JOIN TotalTouchdownsDB.Users usr 
+        ON bet.user_id = usr.user_id
+        GROUP BY usr.firstname, usr.lastname
+        ORDER BY SUM(sel.pointsawarded) DESC
+        LIMIT 10
 ");
 
         $r->execute();

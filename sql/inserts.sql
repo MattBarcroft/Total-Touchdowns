@@ -245,3 +245,6 @@ VALUES
 
 ("10","1","2","3",NULL),("10","2","4","3",NULL),("10","3","2","2",NULL),("10","4","3","1",NULL),("10","5","1","4",NULL)
 ;
+
+
+update TotalTouchdownsDB.Users set password = '$2y$10$Bw6nqOrPFhBI2kLssvynq.rxSlZRHglZ1cjuNO0VeOltDEvfZWwfy';

@@ -8,6 +8,7 @@
   <?php
     $leaderboardFactory = new leaderboardFactory();
     $rows = $leaderboardFactory->get_top_10_leaderboard();
+
     foreach ($rows as $row) {
         echo "<tr><td>".$row['totalpoints']."</td>";
         echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
