@@ -1,5 +1,21 @@
-<form id='form-bet-scores' method='post' action='../controllers/bet/insertBet.php'>
+<script>
+      $(function () {
+        $('#form-bet-scores').on('submit', function (e) {
+          e.preventDefault();
+          $.ajax({
+            type: 'post',
+            url: '../controllers/bet/insertBet.php',
+            data: $('#form-bet-scores').serialize(),
+            success: function () {
+              alert('Your bet was submitted successfully');
+            }
+          });
+        });
+      });
+    </script>
+<form id='form-bet-scores'>
   <!-- Page Features -->
+
   <div class="well">
     <div class="row text-center container-flex">
       <?php
