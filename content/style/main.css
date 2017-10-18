@@ -58,6 +58,11 @@ body {
   border-radius: 5px;
 }
 
+.card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
 .card-inner {
   padding: 0 5px 5px 5px;
 }
@@ -88,6 +93,12 @@ body {
   width: 35px;
 }
 
+.completed-game>a {
+  color: black;
+  background-color: rgb(226, 226, 226)!important;
+  border-color: rgb(226, 226, 226)!important;
+}
+
 p.card-text {
   font-size: 10px;
   background-color: #1b3d7b;
@@ -107,6 +118,10 @@ p.card-text {
 
 .text-align-center {
   text-align: center;
+}
+
+.greyed-out>a {
+  background-color: rgb(223, 223, 223)!important;
 }
 
 
@@ -190,6 +205,9 @@ p.card-text {
   }
   .card-flex {
     width: 30%;
+  }
+  #week-selector {
+    width: 700px;
   }
 }
 

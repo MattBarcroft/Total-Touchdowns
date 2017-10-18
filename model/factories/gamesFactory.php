@@ -87,6 +87,22 @@ class gamesFactory
         return $r;
     }
 
+    public function most_recent_game_completed()
+    {
+        $pdo = get_db();
+
+        $r = $pdo->prepare("
+        SELECT week_id FROM TotalTouchdownsDB.Games 
+        where hometeamactualscore is not null
+        group by week_id
+        order by week_id desc
+        LIMIT 1
+        ");
+
+        $r->execute();
+        return $r;
+    }
+
     public function select_games_by_week($week_id)
     {
         $pdo = get_db();

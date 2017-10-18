@@ -31,6 +31,7 @@
           ?>
         <div class="card-flex">
           <div class="card">
+            
           <p class="card-text">
               <?php
               $kickoffdt = date('d/m/Y h:ia', strtotime($row['kickoff_datetime']));
