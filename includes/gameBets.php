@@ -135,25 +135,8 @@
               </div>
       </div>
       </div>
-
-
-<?php
-if (isset($_COOKIE['username'])) {
-    ?>
-      <div class="flex-direction-row full-width">
-        <div class="align-right">
-          <input type="submit" class="btn btn-primary" value="Place Bets">
-        </div>
-      </div>
-<?php
-} else {
-  echo "<div class='flex-direction-row full-width'>";
-  echo "<div class='align-right'>";
-        echo "<p>Please log in to bet</p>";
-        echo "</div>";
-        echo "</div>";
-    }?>
-    </div>
+<?php include("submitBet.php"); ?>
+</div>
 
   </div>
 </form>

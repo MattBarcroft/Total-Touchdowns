@@ -135,6 +135,19 @@ footer {
   background-image: linear-gradient(to bottom, #bfc2de 0, #fff 100%);
 }
 
+a>h4 {
+  text-decoration: none;
+}
+
+#submit-btn-container {
+  width: 60%;
+}
+
+#submit-btn-container>input,
+#submit-btn-container>p {
+  font-size: 20px;
+}
+
 
 /*POSITIONING*/
 
