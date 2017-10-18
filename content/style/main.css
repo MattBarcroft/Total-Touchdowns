@@ -1,4 +1,4 @@
-.individual-game{
+.individual-game {
   margin: 10px 0;
   background-color: #ccc;
   border-color: #ddd;
@@ -8,93 +8,199 @@
   box-shadow: none;
   height: 150px;
 }
-.game-header{
+
+.game-header {
   text-align: center;
 }
-.team-name-header{
-  height:40px;
+
+.team-name-header {
+  height: 40px;
 }
-#navbar-upper{
-  background-color:#1b3c7b;
+
+#navbar-upper {
+  background-color: #1b3c7b;
 }
-#navbar-lower{
-  background-color:#0b2352;
+
+#navbar-lower {
+  background-color: #0b2352;
 }
-.navbar-header>a, .nav>li>a{
-  color:rgb(189, 189, 189)!important;
+
+.navbar-header>a,
+.nav>li>a {
+  color: rgb(189, 189, 189)!important;
 }
-.navbar-header>a:hover, .nav>li>a:hover{
-  color:#ffffff!important;
+
+.navbar-header>a:hover,
+.nav>li>a:hover {
+  color: #ffffff!important;
 }
+
 body {
   padding-top: 50px;
 }
-.sidebar-leaderboard{
+
+.sidebar-leaderboard {
   background-color: #e9ecef;
   border-radius: .3rem;
 }
-.card-img-top{
-  width:100%;
+
+.card-img-top {
+  width: 100%;
 }
-.table>tbody>tr>th, .table>tbody>tr>td{
+
+.card {
+  background-color: white;
+  border-color: rgb(121, 121, 121);
+  border: solid #ccc;
+  border-width: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.card-inner {
+  padding: 0 5px 5px 5px;
+}
+
+.table>tbody>tr>th,
+.table>tbody>tr>td {
   font-size: 14px;
 }
 
-.btn-addsubtract-score,  .input-bet-scores {
-  width:35px;
+.btn-addsubtract-score,
+.input-bet-scores {
+  width: 35px;
   margin: 0 auto;
 }
-.input-bet-scores{
-  height:70px;
-  width:35px;
+
+.btn-gold {
+  background-color: #ffee00;
+  border-color: #797100;
+  color: #fff;
 }
 
-p.card-text{
-      font-size: 10px;
+.btn-gold:hover {
+  background-color: #ddcb00;
 }
+
+.input-bet-scores {
+  height: 70px;
+  width: 35px;
+}
+
+p.card-text {
+  font-size: 10px;
+  background-color: #1b3d7b;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: white;
+}
+
+#tiebreaker-header {
+  background-color: #ffee00;
+  color: black;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
 
 /*POSITIONING*/
 
-.div-narrow{
-  width:300px;
+.div-narrow {
+  width: 300px;
 }
-.centre-align{
+
+.centre-align {
   align-items: center;
-  margin:0 auto;
+  margin: 0 auto;
 }
-.full-width{
-  width:100%;
+
+.full-width {
+  width: 100%;
 }
+
+.padding-zero {
+  padding: 0;
+}
+
 
 /*FLEXBOX*/
 
-.card-flex{
+.card-flex {
   width: 200px;
   margin: auto;
   padding-bottom: 25px;
-
 }
-.container-flex{
-  display:flex;
+
+.container-flex {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.flex-direction-column{
+
+.flex-direction-column {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
 }
 
-.flex-direction-row{
+.flex-direction-row {
   display: flex;
-  flex-direction:row;
-
+  flex-direction: row;
 }
-.flex-grow{
+
+.flex-grow {
   flex-grow: 1;
 }
-.flex-align-right{
+
+.flex-align-right {
   align-items: flex-end;
 }
-.align-right{
+
+.align-right {
   margin-left: auto;
+}
+
+.btn-addsubtract-score {
+  border-radius: 0px
+}
+
+.btn-add-score {
+  border-radius: 3px 3px 0px 0px;
+}
+
+.btn-subtract-score {
+  border-radius: 0px 0px 3px 3px;
+}
+
+
+/* MEDIA QUERIES*/
+
+
+/* DESKTOP */
+
+@media screen and (min-width: 992px) {
+  .card {
+    height: 220px;
+  }
+  .card-flex {
+    width: 30%;
+  }
+}
+
+
+/* MOBILE/TABLET */
+
+@media screen and (max-width: 992px) {
+  .card {
+    height: 300px;
+  }
+  .card-img-top {
+    width: 40%;
+  }
 }

@@ -17,4 +17,5 @@ include("init.php");
   <script src="../content/script/main.js"></script>
   <link href="../content/style/main.css" rel="stylesheet">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
