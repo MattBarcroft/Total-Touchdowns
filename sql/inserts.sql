@@ -142,66 +142,7 @@ VALUES
     ("Tampa Bay Buccanneers", "logo/bucaneers.gif"),
     ("Tennessee Titans", "logo/titans.gif"),
     ("Washington Redskins", "logo/redskins.gif");
-
-INSERT INTO games
-(
-
-  	hometeam_id,
-  	awayteam_id,
-  	hometeamactualscore,
-  	awayteamactualscore,
-  	kickoff_datetime,
-  	location,
-  	week_id
-)
-
-
-VALUES (
-    "1",
-    "2",
-    "4",
-    "2",
-    "2017-09-17 13:00:00",
-    "Arizona",
-    "1"),
-
-(
-    "3",
-    "4",
-    "2",
-    "2",
-    "2017-09-17 13:00:00",
-    "Baltimore",
-    "1"),
-
-    (
-    "5",
-    "6",
-    "1",
-    "3",
-    "2017-09-17 13:00:00",
-    "Chicago",
-    "1"),
-
-    (
-    "7",
-    "8",
-    "3",
-    "3",
-    "2017-09-17 13:00:00",
-    "Dallas",
-    "1"),
-
-    (
-    "9",
-    "10",
-    "2",
-    "3",
-    "2017-09-17 13:00:00",
-    "Houston",
-    "1")
-    ;
-
+    
 
 INSERT INTO bets
 (
