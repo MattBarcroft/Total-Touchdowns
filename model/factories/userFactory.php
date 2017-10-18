@@ -53,9 +53,31 @@ function getCurrentUser(){
         SELECT firstname, lastname, address, password, email FROM TotalTouchdownsDB.Users");
 
     $r->execute();
-    return $r;
+    return $r->FetchAll();
 
   }
+
+  function getAllUsers2(){
+    $pdo = get_db();
+
+    $r = $pdo->prepare("
+        SELECT user_id, username, firstname, lastname, address, email, rgoptout, admin FROM TotalTouchdownsDB.Users");
+
+    $r->execute();
+    return $r->FetchAll();
+
+  }
+
+  function makeAdmin($uid, $admin){
+    $pdo = get_db();
+
+    $r = $pdo->prepare("
+        update TotalTouchdownsDB.Users set admin= :ad where user_id = :uid");
+
+        $r->execute(array(':uid' => $uid, ':ad' => $admin));
+
+  }
+
   function optout($uid){
     $pdo = get_db();
 

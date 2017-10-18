@@ -45,6 +45,7 @@ CREATE TABLE Users
 	accountmodified DATETIME ON UPDATE CURRENT_TIMESTAMP,
 	totalscore int NULL,
 	rgoptout TINYINT(1) NOT NULL DEFAULT 0,
+	admin TINYINT(1) NOT NULL DEFAULT 0,
 	CONSTRAINT PK_user_id PRIMARY KEY (user_id),
 	UNIQUE (username)
 );

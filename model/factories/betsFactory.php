@@ -63,6 +63,33 @@ class betsFactory
         return $r;
     }
 
+    public function select_all_bet_selections_by_user($uid)
+    {
+      $pdo = get_db();
+
+      $r = $pdo->prepare("
+        SELECT t1.bet_id, t1.betcreated, t4.name, t5.name, t2.hometeamscore, t2.awayteamscore
+        FROM TotalTouchdownsDB.Bets t1
+        LEFT JOIN TotalTouchdownsDB.Selections t2 ON t1.bet_id = t2.bet_id
+        LEFT JOIN TotalTouchdownsDB.Games t3 ON t2.game_id = t3.game_id
+        LEFT JOIN TotalTouchdownsDB.Teams t4 ON t3.hometeam_id = t4.team_id
+        LEFT JOIN TotalTouchdownsDB.Teams t5 ON t3.awayteam_id = t5.team_id
+        WHERE t1.user_id = :uid");
+
+        $r->execute(array(':uid' => $uid));
+        $bets = $r->FetchAll(PDO::FETCH_NUM);
+
+        $kvp = [];
+
+        foreach ($bets as $bet) {
+            $bs = new betSelections($bet[0], $bet[1], $bet[2], $bet[3], $bet[4], $bet[5]);
+
+            array_push($kvp, $bs);
+        }
+
+        return $kvp;
+    }
+
     public function select_all_bets()
     {
         $pdo = get_db();

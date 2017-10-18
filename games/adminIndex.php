@@ -1,11 +1,9 @@
 <?php
 include("../includes/head.php");
+
+include("../includes/navbar.php");
 ?>
 
-
-  <?php
-  include("../includes/navbar.php");
-  ?>
   <div class="container">
   <?php
   $weekid = $_GET['week_id'];

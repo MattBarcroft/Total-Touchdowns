@@ -9,14 +9,11 @@ $user = $userFactory->getCurrentUser();
 <html>
   <head>
     <meta charset="utf-8">
-    <title>User Details</title>
-    <div class="container">
-      <h2>User Details</h2>
-    </div>
-
   </head>
+
   <body>
       <div class="container">
+        <h2>User Details</h2>
         <table>
           <tr>
             <td>Username: </td>
@@ -42,9 +39,16 @@ $user = $userFactory->getCurrentUser();
       </div>
 
       <div class="container">
+        <h2>View Bets</h2>
+        <form action="../users/viewBets.php" method="post">
+          <input type="submit" value="View Bets">
+        </form>
+      </div>
+
+      <div class="container">
       <h2>Responsible Gambling</h2>
       <form action="../users/optout.php">
-      <input type="submit" name="" value="Opt out">
+      <input type="submit" value="Opt out">
       </form>
       </div>
 

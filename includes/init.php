@@ -3,6 +3,7 @@
 session_start();
 //}
 
+date_default_timezone_set('GMT');
 
 spl_autoload_register(function ($classname) {
     if (file_exists($_SERVER['DOCUMENT_ROOT']."/model/classes/"."$classname.php")) {

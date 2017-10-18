@@ -7,8 +7,4 @@ $command = "mysql -uroot < ".__DIR__."/inserts.sql";
 
 $output = shell_exec($command);
 
-
-$output = shell_exec($command);
-
-
  ?>

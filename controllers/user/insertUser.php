@@ -16,9 +16,10 @@ $user->user_Construct($username, $firstname, $lastname, $address, $email, $passw
 
 $userFactory = new userFactory();
 
-//$userFactory->checkUsername($username);
   $userFactory->insertUser($user);
 
+$loginfactory = new loginfactory();
+$loginfactory->create_session($username, $password);
 
 header("Location: /index.php")
 
