@@ -31,7 +31,14 @@
           ?>
         <div class="card-flex">
           <div class="card">
-            
+            <?php if ($currentweek > $row['week_id']){
+            echo "<div id='corner-triangle'>";
+	          echo "<div class='corner-triangle-text text-capitalize'>";
+            echo "<span class='corner-triangle-firstline'>Game</span><br>Complete";
+            echo "</div>";
+            echo "</div>";
+            }
+            ?>
           <p class="card-text">
               <?php
               $kickoffdt = date('d/m/Y h:ia', strtotime($row['kickoff_datetime']));

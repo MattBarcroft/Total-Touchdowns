@@ -3,6 +3,7 @@ include("includes/head.php");
 ?>
 <body>
   <?php
+
   include("includes/navbar.php");
   ?>
   <?php
@@ -74,13 +75,9 @@ include("includes/head.php");
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; 2017</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
+<?php
+include("includes/footer.php");
+?>
 
 
   </body>

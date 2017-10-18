@@ -19,6 +19,8 @@
 
 #navbar-upper {
   background-color: #1b3c7b;
+  border-radius: 0px!important;
+  margin: 0;
 }
 
 #navbar-lower {
@@ -36,7 +38,7 @@
 }
 
 body {
-  padding-top: 50px;
+  padding-top: 28px;
 }
 
 .sidebar-leaderboard {
@@ -122,6 +124,15 @@ p.card-text {
 
 .greyed-out>a {
   background-color: rgb(223, 223, 223)!important;
+}
+
+#rg {
+  padding: 20px 0 0 0;
+  width: 100%;
+}
+
+footer {
+  background-image: linear-gradient(to bottom, #bfc2de 0, #fff 100%);
 }
 
 
@@ -221,4 +232,73 @@ p.card-text {
   .card-img-top {
     width: 40%;
   }
+}
+
+.card {
+  position: relative;
+}
+
+div#corner-triangle {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-style: solid;
+  border-width: 0 80px 80px 0;
+  border-color: transparent #2e7b1b transparent transparent;
+  top: 0;
+  right: 0;
+  position: absolute;
+  z-index: 99999;
+  color: white;
+}
+
+div#corner-triangle .corner-triangle-text {
+  position: relative;
+  font-size: 12px;
+  top: -5px;
+  right: -40px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+div#corner-triangle .corner-triangle-text span.corner-triangle-firstline {
+  margin-left: 9px;
+}
+
+div#corner-triangle .corner-triangle-text a {
+  color: white;
+}
+
+
+/* skybet products */
+
+#product-wrapper {
+  padding: 0;
+  margin: 0;
+  background-color: #262626;
+  position: fixed;
+  width: 100%;
+}
+
+.product-image {
+  height: 18px;
+}
+
+.product-item {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 12px;
+}
+
+.product-image-large {
+  height: 20px;
+}
+
+.product-list {
+  margin: auto;
+  height: 28px;
+  display: table;
 }
