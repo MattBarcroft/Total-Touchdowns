@@ -3,7 +3,7 @@ include("init.php");
 ?>
 <html>
 <head>
-  <title>Total touchdowns</title>
+  <title>Total Touchdown</title>
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <!-- Jquery UI -->
