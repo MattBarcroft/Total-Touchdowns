@@ -112,7 +112,7 @@ class gamesFactory
           gm.game_id, gm.hometeam_id, htm.name as htname,
           gm.awayteam_id, atm.name as atname, gm.hometeamactualscore, gm.awayteamactualscore,
           htm.logo as htlogo, atm.logo as atlogo,
-          gm.kickoff_datetime, gm.week_id, gm.location
+          gm.kickoff_datetime, gm.week_id, gm.location, gm.first_quarter_td
           FROM TotalTouchdownsDB.Games gm
           LEFT JOIN TotalTouchdownsDB.Teams htm
           ON gm.hometeam_id = htm.team_id
@@ -138,6 +138,19 @@ class gamesFactory
           ON gm.awayteam_id = atm.team_id");
 
         $r->execute();
+        return $r;
+    }
+
+    public function first_quarter_td_by_week($week_id)
+    {
+        $pdo = get_db();
+
+        $r = $pdo->prepare("
+          SELECT SUM(gm.first_quarter_td) as first_quarter_td
+          FROM TotalTouchdownsDB.Games gm
+          WHERE  gm.week_id = :week_id");
+
+        $r->execute(array(':week_id' => $week_id));
         return $r;
     }
 }

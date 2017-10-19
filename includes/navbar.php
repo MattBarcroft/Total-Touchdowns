@@ -50,7 +50,7 @@
 			<li><a href="../index.php">Home</a></li>
 			<li><a href="../index.php">Play</a></li>
 			<li><a href="#">Leaderboard</a></li>
-    	<li><a href="#">Results</a></li>
+    		<li><a href="../users/betHistory.php">My Bets</a></li>
 		</ul>
 
 

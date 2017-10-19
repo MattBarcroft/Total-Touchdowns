@@ -1,27 +1,9 @@
-<script>
-      $(function () {
-        $('#form-bet-scores').on('submit', function (e) {
-          e.preventDefault();
-          $.ajax({
-            type: 'post',
-            url: '../controllers/bet/insertBet.php',
-            data: $('#form-bet-scores').serialize(),
-            success: function () {
-              alert('Your bet was submitted successfully');
-              window.location.reload();
-            }
-          });
-        });
-      });
-    </script>
-<form id='form-bet-scores'>
-  <!-- Page Features -->
 
-  <div class="well">
+<div class="well">
           <div class="row text-center container-flex">
       <?php
       foreach ($rows as $row) {
-        $gameResultsReleased;
+        $gameResultsReleased = 0;
         $betplacedflag = 0;
         if($row['hometeamactualscore'] != NULL){
           $gameResultsReleased = 1;
@@ -29,7 +11,7 @@
         else{
           $gameResultsReleased = 0;
         }
-        if($lastbetplaced == $currentweek){
+        if($lastbetplaced == $weekid){
           $betplacedflag = 1;
           $betselection = $betsFactory->select_single_bet_selections_by_user_week_game($user_id, $weekid, $row['game_id']);
           
@@ -37,7 +19,7 @@
 
           ?>
         <div class="card-flex">
-          <div class="card">
+          <div class="card card-user-bets">
             <?php if ($currentweek > $row['week_id']){
               echo "<div id='corner-triangle' class='round-complete'>";
 	            echo "<div class='corner-triangle-text text-capitalize'>";
@@ -77,29 +59,32 @@
             <div class="flex-direction-row flex-grow full-width">
               <div class="flex-direction-row flex-grow score-controls">
                 <div class="flex-direction-column flex-grow">
-                <button class='btn btn-primary btn-addsubtract-score btn-add-score' type='input'
-                    <?php 
-                    if($gameResultsReleased == 1 || $currentweek < $weekid || $lastbetplaced == $currentweek){
-                     echo "disabled='disabled'";
-                    }; ?>>
-                  +</button>
-                  <button class='btn btn-primary btn-addsubtract-score btn-subtract-score' type='input'
-                    <?php 
-                    if($gameResultsReleased == 1 || $currentweek < $weekid || $lastbetplaced == $currentweek ){
-                     echo "disabled='disabled'";
-                    }; ?>>
-                  -</button>
-                </div>
-                <div class="flex-direction-column flex-grow">
+                <p>Game Result</p>
                 <?php
                   echo "<input name='gameid-".$row['game_id']."' value='".$row['game_id']."' type='hidden'>";
-                  if($gameResultsReleased == 1 || $currentweek < $weekid || $betplacedflag == 1 ){
+                  if($gameResultsReleased == 1){
                     echo "<input class='form-control input-bet-scores' id='htscore-game-".$row['game_id']."' 
                     name='htscore-game-".$row['game_id']."' type='text' readonly value='".$row['hometeamactualscore']."'>";
                   }else{
                     echo "<input class='form-control input-bet-scores' id='htscore-game-".$row['game_id']."' 
-                    name='htscore-game-".$row['game_id']."' type='text' value='0'>";
+                    name='htscore-game-".$row['game_id']."' readonly type='text' value=''>";
                   }
+                  ?>
+                  </div>
+                  <div class="flex-direction-column flex-grow">
+                  <p>Your Bet</p>
+                  <?php
+                  echo "<input name='gameid-".$row['game_id']."' value='".$row['game_id']."' type='hidden'>";
+                  if($betplacedflag == 1){
+                    echo "<input class='form-control input-bet-scores' id='htscore-game-".$row['game_id']."' 
+                    name='htscore-game-".$row['game_id']."' type='text' readonly value='".$betselection[0]->home_team_score."'>";
+                  }else{
+                    echo "<input class='form-control input-bet-scores' id='htscore-game-".$row['game_id']."' 
+                    name='htscore-game-".$row['game_id']."' type='text' readonly value=''>";
+                  }
+
+
+                  
                   // $row['hometeamactualscore'];
                   // $betselection[0]->home_team_score; //compare these 2
                   ?>
@@ -107,6 +92,7 @@
               </div>
               <div class="flex-direction-row flex-grow score-controls">
                 <div class="flex-direction-column flex-grow">
+                    <p>Game Result</p>
                   <?php
                   echo "<input name='gameid-".$row['game_id']."' value='".$row['game_id']."' type='hidden'>";
                   if($gameResultsReleased == 1 || $currentweek < $weekid || $betplacedflag == 1){
@@ -114,23 +100,25 @@
                     name='atscore-game-".$row['game_id']."' type='text' readonly value='".$row['awayteamactualscore']."'>";
                   }else{
                     echo "<input class='form-control input-bet-scores' id='atscore-game-".$row['game_id']."' 
-                    name='atscore-game-".$row['game_id']."' type='text' value='0'>";
+                    name='atscore-game-".$row['game_id']."' type='text' readonly>";
                   }
                   ?>
                 </div>
-                <div class="flex-direction-column flex-grow">
-                  <button class='btn btn-primary btn-addsubtract-score btn-add-score' type='input'
-                    <?php 
-                    if($gameResultsReleased == 1 || $currentweek < $weekid || $lastbetplaced == $currentweek ){
-                     echo "disabled='disabled'";
-                    }; ?>>
-                  +</button>
-                  <button class='btn btn-primary btn-addsubtract-score btn-subtract-score' type='input'
-                    <?php 
-                    if($gameResultsReleased == 1 || $currentweek < $weekid || $lastbetplaced == $currentweek){
-                     echo "disabled='disabled'";
-                    }; ?>>
-                  -</button>
+                  <div class="flex-direction-column flex-grow">
+                  <p>Your Bet</p>
+                  <?php
+                  echo "<input name='gameid-".$row['game_id']."' value='".$row['game_id']."' type='hidden'>";
+                  if($betplacedflag == 1){
+                    echo "<input class='form-control input-bet-scores' id='htscore-game-".$row['game_id']."' 
+                    name='htscore-game-".$row['game_id']."' type='text' readonly value='".$betselection[0]->away_team_score."'>";
+                  }else{
+                    echo "<input class='form-control input-bet-scores' id='htscore-game-".$row['game_id']."' 
+                    name='htscore-game-".$row['game_id']."' type='text' readonly value=''>";
+                  }
+
+                  // $row['hometeamactualscore'];
+                  // $betselection[0]->home_team_score; //compare these 2
+                  ?>
                 </div>
               </div>
             </div>
@@ -141,42 +129,57 @@
       }
       ?>
       <div class="card-flex">
-      <div class="card">
+      <div class="card card-user-bets">
         <p class="card-text" id="tiebreaker-header">
           Tiebreaker - Touchdowns in First Quarter
         </p>
         <div>
           <p>
+          <?php echo $weekid; ?>
           The final Tiebreaker will determine the winner if two or more predictions are correct.
           </p>
 
         </div>
+        <?php
+        isset($_GET['week_id']) ? $weekid = $_GET['week_id'] : $weekid = $currentweek;
+        
+        $return = $games->first_quarter_td_by_week($weekid);
+        $returnbet = $bets->select_bet_by_user_week($user_id, $weekid);
+        
+        if($first_quarter_td_array = $return->fetch()){
+            $first_quarter_td_actual = $first_quarter_td_array[0];
+        }
+
+        if($first_quarter_td_bet_array = $returnbet->fetch()){
+           
+            $first_quarter_td_bet = $first_quarter_td_bet_array[0];
+            
+        }
+
+        ?>
         <div class="flex-direction-row flex-grow score-controls">
                 <div class="flex-direction-column flex-grow">
-                  <button class="btn btn-gold btn-addsubtract-score btn-add-score" type="input" 
-                  <?php 
-                    if($gameResultsReleased == 1 || $currentweek < $weekid || $lastbetplaced == $currentweek){
-                     echo "disabled='disabled'";
-                    }; ?>>+</button>
-                  <button class="btn btn-gold btn-addsubtract-score btn-subtract-score" type="input"
-                  <?php 
-                    if($gameResultsReleased == 1 || $currentweek < $weekid || $lastbetplaced == $currentweek){
-                     echo "disabled='disabled'";
-                    }; ?>>-</button>
+                <p>Game Result</p>
+                <input name="tiebreaker" value="tiebreaker" type="hidden"><input class="form-control input-bet-scores tiebreaker" type="text" disabled='disabled'
+                <?php 
+                    if($gameResultsReleased == 1){
+                     echo "value='".$first_quarter_td_actual."'";
+                    }; ?>
+                > 
                 </div>
                 <div class="flex-direction-column flex-grow">
-                <input name="tiebreaker" value="tiebreaker" type="hidden"><input class="form-control input-bet-scores tiebreaker" id="tiebreaker" name="tiebreaker" type="text" value="0"
+                <p>Your Bet</p>
+                <input name="tiebreaker" value="tiebreaker" type="hidden"><input class="form-control input-bet-scores tiebreaker"  disabled='disabled' type="text" 
                 <?php 
-                    if($gameResultsReleased == 1 || $currentweek < $weekid || $lastbetplaced == $currentweek){
-                     echo "disabled='disabled'";
+                    if($betplacedflag == 1){
+                        echo "value='".$first_quarter_td_bet."'";
                     }; ?>
                 >               
               </div>
               </div>
       </div>
       </div>
-<?php include("submitBet.php"); ?>
-</div>
 
-  </div>
-</form>
+</div>
+</div>
+               
