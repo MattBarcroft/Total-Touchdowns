@@ -980,16 +980,16 @@ VALUES
     "Cleveland",
     "17")
     ;
-    
+
 INSERT INTO bets
 (
 user_id
-
+first_quarter_td 
 )
 
 VALUES
 
-("1"),("2"),("3"),("4"),("5"),("6"),("7"),("8"),("9"),("10")
+("1","3"),("2","3"),("3","4"),("4","3"),("5","2"),("6","3"),("7","1"),("8","6"),("9","5"),("10","13")
 ;
 
 
@@ -1026,3 +1026,5 @@ VALUES
 
 
 update TotalTouchdownsDB.Users set password = '$2y$10$Bw6nqOrPFhBI2kLssvynq.rxSlZRHglZ1cjuNO0VeOltDEvfZWwfy';
+
+update TotalTouchdownsDB.games set first_quarter_td = 3 where week_id = 1;

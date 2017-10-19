@@ -39,6 +39,7 @@
 
 body {
   padding-top: 28px;
+  background-color: #edf9ff;
 }
 
 .sidebar-leaderboard {
@@ -251,18 +252,28 @@ a>h4 {
   position: relative;
 }
 
+
+/* Corner notifier */
+
 div#corner-triangle {
   display: block;
   width: 80px;
   height: 80px;
   border-style: solid;
   border-width: 0 80px 80px 0;
-  border-color: transparent #2e7b1b transparent transparent;
   top: 0;
   right: 0;
   position: absolute;
   z-index: 99999;
   color: white;
+}
+
+.round-complete {
+  border-color: transparent #2e7b1b transparent transparent;
+}
+
+.round-not-ready {
+  border-color: transparent #cc0e0e transparent transparent;
 }
 
 div#corner-triangle .corner-triangle-text {
@@ -278,7 +289,7 @@ div#corner-triangle .corner-triangle-text {
 }
 
 div#corner-triangle .corner-triangle-text span.corner-triangle-firstline {
-  margin-left: 9px;
+  margin-left: 5px;
 }
 
 div#corner-triangle .corner-triangle-text a {

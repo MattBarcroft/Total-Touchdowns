@@ -8,7 +8,7 @@ $user_id = $user->getcurrentuserid();
 
 $betsFactory = new betsFactory();
 //insert validation so user can only place 1 bet
-$bet_id = $betsFactory->insert_new_bet($user_id);
+$bet_id = $betsFactory->insert_new_bet($user_id, $_POST["tiebreaker"]);
 
 $betsFactory->insert_selections($bet_id, $_POST);
 

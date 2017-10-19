@@ -1,6 +1,6 @@
 
 <?php
-if (isset($_COOKIE['username']) && $weekid == $currentweek) {
+if (isset($_COOKIE['username']) && $weekid == $currentweek && $lastbetplaced != $currentweek) {
     ?>
       <div class="flex-direction-row full-width">
         <div class="centre-align" id="submit-btn-container">
@@ -24,7 +24,15 @@ if (isset($_COOKIE['username']) && $weekid == $currentweek) {
         </div>
       </div>
 <?php
-}
+} else if ($lastbetplaced == $currentweek){
+    ?>
+        <div class='flex-direction-row full-width'>
+          <div class='centre-align' id='submit-btn-container'>
+            <p>You cannot place another bet this week</p>
+          </div>
+        </div>
+  <?php
+  }
 else{ 
 ?>
       <div class='flex-direction-row full-width'>
