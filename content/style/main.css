@@ -27,6 +27,15 @@
   background-color: #0b2352;
 }
 
+.navbar-brand {
+  height: 100px;
+  padding: 10px;
+}
+
+.TTlogo {
+  height: 80px;
+}
+
 .navbar-header>a,
 .nav>li>a {
   color: rgb(189, 189, 189)!important;

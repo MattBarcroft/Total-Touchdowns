@@ -3,8 +3,11 @@
 <div class="navbar navbar-inverse" id="navbar-upper" role="navigation">
 <div class="container">
 	<div class="navbar-header">
-        <div class="navbar-header"><a class="navbar-brand" href="../index.php">Total Touchdown</a></div>
-		</button>
+		<div class="navbar-header">
+			<a class="navbar-brand" href="../index.php">
+				<img class="TTlogo" src="/content/images/TTlogo.png">
+			</a>
+		</div>
 	</div>
 
 	<div class="collapse navbar-collapse">
@@ -47,33 +50,13 @@
 	<div class="collapse navbar-collapse">
 
 		<ul class="nav navbar-nav">
+			<li><a href="../index.php">Home</a></li>
 			<li><a href="../index.php">Play</a></li>
-			<li><a href="../leaderboard/index.php">Leaderboard</a></li>
-    		<li><a href="../users/betHistory.php">My Bets</a></li>
+			<li><a href="#">Leaderboard</a></li>
+    	<li><a href="#">Results</a></li>
 		</ul>
 
 
 	</div>
 </div>
 </div>
-<?php 
-if (isset($_COOKIE["username"])){
-    $userFactory = new userFactory();
-	
-	$user_id = $userFactory->getcurrentuserid();
-	  
-	$betsFactory = new betsFactory();
-			
-	$return = $betsFactory->select_last_bet_placed($user_id);
-			
-	if(($lastbetplacedarray = $return->fetch())){
-		$lastbetplaced = $lastbetplacedarray[0];
-	}
-	else{
-		$lastbetplaced = 0;
-	}
-	
-} else {
-	$lastbetplaced = 0;
-}
-?>
