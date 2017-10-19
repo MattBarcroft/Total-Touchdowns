@@ -43,7 +43,7 @@ class leaderboardFactory
       
         return $r;
     }
-    public function get_points_by_user()
+    public function get_points_by_user($userid)
     {
         $pdo = get_db();
 
@@ -55,12 +55,12 @@ class leaderboardFactory
         ON bet.bet_id = sel.bet_id
         JOIN TotalTouchdownsDB.Users usr 
         ON bet.user_id = usr.user_id
-        WHERE usr.user_id = 1
+        WHERE usr.user_id = :user_id
         GROUP BY usr.firstname, usr.lastname
         ORDER BY SUM(sel.pointsawarded) DESC
            ");
 
-        $r->execute();
+        $r->execute(array(':user_id' => $userid));
       
         return $r;
     }

@@ -68,6 +68,14 @@ include("../includes/head.php");
       <div class="col-md-3">
         <div class="well">
             <h3>Your Points</h3>
+            <?php
+            $leaderboardFactory = new leaderboardFactory();
+            $userpointsarray = $leaderboardFactory->get_points_by_user($user_id);
+            if($userpoints = $userpointsarray->fetch()){
+                echo "<h1>".$userpoints['totalpoints']."</h1>";
+            }
+
+            ?>
         </div>
     </div>
     <?php }else{ ?>
@@ -83,7 +91,7 @@ include("../includes/head.php");
 <?php
 include("../includes/footer.php");
 ?>
-
+  <script src="../content/script/mybets.js"></script>
 
   </body>
 

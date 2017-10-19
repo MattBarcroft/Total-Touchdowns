@@ -61,12 +61,12 @@
                 <div class="flex-direction-column flex-grow">
                 <p>Game Result</p>
                 <?php
-                  echo "<input name='gameid-".$row['game_id']."' value='".$row['game_id']."' type='hidden'>";
+                  echo "<input class='game-number' name='gameid-".$row['game_id']."' value='".$row['game_id']."' type='hidden'>";
                   if($gameResultsReleased == 1){
-                    echo "<input class='form-control input-bet-scores' id='htscore-game-".$row['game_id']."' 
+                    echo "<input class='form-control input-bet-scores' id='htscore-game-result-".$row['game_id']."' 
                     name='htscore-game-".$row['game_id']."' type='text' readonly value='".$row['hometeamactualscore']."'>";
                   }else{
-                    echo "<input class='form-control input-bet-scores' id='htscore-game-".$row['game_id']."' 
+                    echo "<input class='form-control input-bet-scores' id='htscore-game-result-".$row['game_id']."' 
                     name='htscore-game-".$row['game_id']."' readonly type='text' value=''>";
                   }
                   ?>
@@ -76,10 +76,10 @@
                   <?php
                   echo "<input name='gameid-".$row['game_id']."' value='".$row['game_id']."' type='hidden'>";
                   if($betplacedflag == 1){
-                    echo "<input class='form-control input-bet-scores' id='htscore-game-".$row['game_id']."' 
+                    echo "<input class='form-control input-bet-scores' id='htscore-bet-result-".$row['game_id']."' 
                     name='htscore-game-".$row['game_id']."' type='text' readonly value='".$betselection[0]->home_team_score."'>";
                   }else{
-                    echo "<input class='form-control input-bet-scores' id='htscore-game-".$row['game_id']."' 
+                    echo "<input class='form-control input-bet-scores' id='htscore-bet-result-".$row['game_id']."' 
                     name='htscore-game-".$row['game_id']."' type='text' readonly value=''>";
                   }
 
@@ -96,10 +96,10 @@
                   <?php
                   echo "<input name='gameid-".$row['game_id']."' value='".$row['game_id']."' type='hidden'>";
                   if($gameResultsReleased == 1 || $currentweek < $weekid || $betplacedflag == 1){
-                    echo "<input class='form-control input-bet-scores' id='atscore-game-".$row['game_id']."' 
+                    echo "<input class='form-control input-bet-scores' id='atscore-game-result-".$row['game_id']."' 
                     name='atscore-game-".$row['game_id']."' type='text' readonly value='".$row['awayteamactualscore']."'>";
                   }else{
-                    echo "<input class='form-control input-bet-scores' id='atscore-game-".$row['game_id']."' 
+                    echo "<input class='form-control input-bet-scores' id='atscore-game-result-".$row['game_id']."' 
                     name='atscore-game-".$row['game_id']."' type='text' readonly>";
                   }
                   ?>
@@ -109,11 +109,11 @@
                   <?php
                   echo "<input name='gameid-".$row['game_id']."' value='".$row['game_id']."' type='hidden'>";
                   if($betplacedflag == 1){
-                    echo "<input class='form-control input-bet-scores' id='htscore-game-".$row['game_id']."' 
-                    name='htscore-game-".$row['game_id']."' type='text' readonly value='".$betselection[0]->away_team_score."'>";
+                    echo "<input class='form-control input-bet-scores' id='atscore-bet-result-".$row['game_id']."' 
+                    name='atscore-game-".$row['game_id']."' type='text' readonly value='".$betselection[0]->away_team_score."'>";
                   }else{
-                    echo "<input class='form-control input-bet-scores' id='htscore-game-".$row['game_id']."' 
-                    name='htscore-game-".$row['game_id']."' type='text' readonly value=''>";
+                    echo "<input class='form-control input-bet-scores' id='atscore-bet-result-".$row['game_id']."' 
+                    name='atscore-game-".$row['game_id']."' type='text' readonly value=''>";
                   }
 
                   // $row['hometeamactualscore'];
@@ -160,7 +160,7 @@
         <div class="flex-direction-row flex-grow score-controls">
                 <div class="flex-direction-column flex-grow">
                 <p>Game Result</p>
-                <input name="tiebreaker" value="tiebreaker" type="hidden"><input class="form-control input-bet-scores tiebreaker" type="text" disabled='disabled'
+                <input class="form-control input-bet-scores tiebreaker" id="tiebreaker-1" type="text" disabled='disabled'
                 <?php 
                     if($gameResultsReleased == 1){
                      echo "value='".$first_quarter_td_actual."'";
@@ -169,7 +169,7 @@
                 </div>
                 <div class="flex-direction-column flex-grow">
                 <p>Your Bet</p>
-                <input name="tiebreaker" value="tiebreaker" type="hidden"><input class="form-control input-bet-scores tiebreaker"  disabled='disabled' type="text" 
+                <input class="form-control input-bet-scores tiebreaker" id="tiebreaker-2" disabled='disabled' type="text" 
                 <?php 
                     if($betplacedflag == 1){
                         echo "value='".$first_quarter_td_bet."'";

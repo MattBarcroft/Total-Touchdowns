@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    $('#week_id').change(function() {
+$(document).ready(function () {
+    $('#week_id').change(function () {
         $('#weekpicker').form.submit();
     });
 
@@ -11,4 +11,6 @@ $(document).ready(function(){
         $input.val(val + ($(this).hasClass('btn-subtract-score') ? -1 : 1));
     });
 
-  });
+
+
+});
