@@ -27,6 +27,8 @@ include("../includes/head.php");
 
     <p>Awayteam Score:</p>
         <input type="text" name="awayteamactualscore">
+    <p>Touchdowns in first quarter:</p>
+        <input type="text" name="firstquartertd">
 
     <p>
     <br>

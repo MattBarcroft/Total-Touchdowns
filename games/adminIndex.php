@@ -6,7 +6,9 @@ include("../includes/navbar.php");
 
   <div class="container">
   <?php
-  $weekid = $_GET['week_id'];
+  if(isset($_GET['week_id'])){
+    $weekid = $_GET['week_id'];
+  };
 
   $games = new gamesFactory();
   if (isset($weekid)) {
@@ -16,7 +18,7 @@ include("../includes/navbar.php");
   }
 
 
-  echo "<table>";
+  echo "<table class='table'>";
   echo "<tr><th>Game ID</th>";
   echo "<th>Weekid</th>";
   echo "<th>Hometeam</th>";

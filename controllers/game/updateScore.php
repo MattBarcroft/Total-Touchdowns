@@ -5,6 +5,8 @@ include("../../includes/init.php");
 $game_id = $_POST["game_id"];
 $hometeamactualscore = $_POST["hometeamactualscore"];
 $awayteamactualscore = $_POST["awayteamactualscore"];
+$firstquartertd = $_POST["firstquartertd"];
+
 
 $gamesFactory = new gamesFactory();
 
@@ -12,7 +14,9 @@ echo $hometeamactualscore."<br>";
 echo $awayteamactualscore."<br>";
 echo $game_id;
 
-$gamesFactory->update_game_scores($game_id, $hometeamactualscore, $awayteamactualscore);
+$gamesFactory->update_game_scores($game_id, $hometeamactualscore, $awayteamactualscore, $firstquartertd);
+
+header("Location: /games/adminindex.php");
 
 ?>
 
