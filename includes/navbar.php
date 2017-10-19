@@ -67,7 +67,13 @@ if (isset($_COOKIE["username"])){
 			
 	$return = $betsFactory->select_last_bet_placed($user_id);
 			
-	$lastbetplaced = ($return->fetch())[0];
+	if(($lastbetplacedarray = $return->fetch())){
+		$lastbetplaced = $lastbetplaced[0];
+	}
+	else{
+		$lastbetplaced = 0;
+	}
+	
 } else {
 	$lastbetplaced = 0;
 }

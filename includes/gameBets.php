@@ -153,11 +153,24 @@
         </div>
         <div class="flex-direction-row flex-grow score-controls">
                 <div class="flex-direction-column flex-grow">
-                  <button class="btn btn-gold btn-addsubtract-score btn-add-score" type="input" 1="">+</button>
-                  <button class="btn btn-gold btn-addsubtract-score btn-subtract-score" type="input" 1="">-</button>
+                  <button class="btn btn-gold btn-addsubtract-score btn-add-score" type="input" 
+                  <?php 
+                    if($gameResultsReleased == 1 || $currentweek < $weekid || $lastbetplaced == $currentweek){
+                     echo "disabled='disabled'";
+                    }; ?>>+</button>
+                  <button class="btn btn-gold btn-addsubtract-score btn-subtract-score" type="input"
+                  <?php 
+                    if($gameResultsReleased == 1 || $currentweek < $weekid || $lastbetplaced == $currentweek){
+                     echo "disabled='disabled'";
+                    }; ?>>-</button>
                 </div>
                 <div class="flex-direction-column flex-grow">
-                <input name="tiebreaker" value="tiebreaker" type="hidden"><input class="form-control input-bet-scores" id="tiebreaker" name="tiebreaker" type="text" value="0">               
+                <input name="tiebreaker" value="tiebreaker" type="hidden"><input class="form-control input-bet-scores" id="tiebreaker" name="tiebreaker" type="text" value="0"
+                <?php 
+                    if($gameResultsReleased == 1 || $currentweek < $weekid || $lastbetplaced == $currentweek){
+                     echo "disabled='disabled'";
+                    }; ?>
+                >               
               </div>
               </div>
       </div>
