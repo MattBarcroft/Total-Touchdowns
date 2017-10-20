@@ -7,21 +7,7 @@ include("../includes/navbar.php");
 
   $users = $userFactory->getAllUsers2();
 ?>
-<!-- <script>
-$(function () {
-  $('#form-bet-scores').on('submit', function (e) {
-    e.preventDefault();
-    $.ajax({
-      type: 'post',
-      url: '../controllers/bet/insertBet.php',
-      data: $('#form-bet-scores').serialize(),
-      success: function () {
-        alert('Was made an admin');
-      }
-    });
-  });
-});
-</script> -->
+
 <div class="container">
   <table>
     <th>User ID</th>

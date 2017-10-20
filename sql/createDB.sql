@@ -22,6 +22,7 @@ CREATE TABLE Games
   	hometeamactualscore int NULL,
   	awayteamactualscore int NULL,
   	kickoff_datetime datetime NOT NULL,
+		first_quarter_td int,
   	location varchar(50) NOT NULL,
   	week_id int NOT NULL,
   	CONSTRAINT PK_game_id PRIMARY KEY (game_id),
@@ -55,6 +56,7 @@ CREATE TABLE Bets
 (
 	bet_id int NOT NULL AUTO_INCREMENT,
 	user_id int NOT NULL,
+	first_quarter_td int,
 	betcreated DATETIME DEFAULT   CURRENT_TIMESTAMP,
 	betmodified DATETIME ON UPDATE CURRENT_TIMESTAMP,
 	CONSTRAINT PK_bet_id PRIMARY KEY (bet_id),

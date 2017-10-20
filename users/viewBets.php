@@ -6,6 +6,7 @@ include("../includes/navbar.php");
   $userFactory = new userFactory();
   $bets = $betFactory->select_all_bet_selections_by_user($userFactory->getcurrentuserid());
   $betid = $bets[0]->bet_id;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,41 +16,24 @@ include("../includes/navbar.php");
   <body>
     <div class="container">
 
-
 <?php
-//var_dump($bets);
-
 echo "<table>";
 echo "<tr><td>Bet Placed: " . $bets[0]->bet_created . "</td></tr>";
-  foreach ($bets as $bet) {
-
-      echo "<tr>";
-
-      if ($betid == $bet->bet_id) {
-        echo "<td>" . $bet->home_team_name . "<input type=\"text\" name=\"\" value=\"$bet->home_team_score\">" . "</td>";
-        echo "<td>" . $bet->away_team_name . "<input type=\"text\" name=\"\" value=\"$bet->away_team_score\">" . "</td>";
-      }
-      else {
-        $betid = $bet->bet_id;
-        echo "</table>";
-        echo "<br>";
-        echo "<table>";
+echo "<form action=\"../controllers/bet/editBet.php\" method=\"post\">";
+echo "<input type=\"hidden\" name=\"betid\" value=". $bets[0]->bet_id . ">";
+echo "<input type=\"hidden\" name=\"weekid\" value=". $bets[0]->select_id . ">";
+  for ($i=0; $i < count($bets); $i++) {
         echo "<tr>";
-
-        echo "<tr><td>Bet Placed: $bet->bet_created</td></tr>";
-        echo "<td>" . $bet->home_team_name . "<input type=\"text\" name=\"\" value=\"$bet->home_team_score\">" . "</td>";
-        echo "<td>" . $bet->away_team_name . "<input type=\"text\" name=\"\" value=\"$bet->away_team_score\">" . "</td>";
-
-    }
-
-    echo "</tr>";
-    echo "</form>";
-    echo "</div>";
-
-
+        echo "<td>" . $bets[$i]->home_team_name . "<input type=\"text\" name=" . $bets[$i]->home_team_id . "  value=" . $bets[$i]->home_team_score . "></td>";
+        echo "<td>" . $bets[$i]->away_team_name . "<input type=\"text\" name=" . $bets[$i]->away_team_id . "  value=" . $bets[$i]->away_team_score . "></td>";
+        echo "</tr>";
   }
-  echo "</table>";
  ?>
+ <tr>
+   <td><input type="submit" name="" value="Submit"></td>
+ </tr>
+ </form>
+ </table>
  </div>
 </body>
 </html>

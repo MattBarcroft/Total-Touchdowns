@@ -142,7 +142,7 @@ VALUES
     ("Tampa Bay Buccanneers", "logo/bucaneers.gif"),
     ("Tennessee Titans", "logo/titans.gif"),
     ("Washington Redskins", "logo/redskins.gif");
-    
+
 use TotalTouchdownsDB;
 
 INSERT INTO games
@@ -304,7 +304,7 @@ VALUES
     "Denver",
     "3"),
 
- 
+
 
 -- week 4
 
@@ -981,10 +981,10 @@ VALUES
     "17")
     ;
 
-INSERT INTO bets
+INSERT INTO Bets
 (
-user_id
-first_quarter_td 
+user_id,
+first_quarter_td
 )
 
 VALUES

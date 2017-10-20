@@ -24,3 +24,18 @@ function get_db()
     $pdo = new PDO($dsn, $userdb, $pass);
     return $pdo;
 }
+
+// public function getWeekId()
+// {
+//   $pdo = get_db();
+//   $currDateTime = date('Y/m/d h:m:s');
+//
+//   $r = $pdo->prepare("
+//     SELECT week_id FROM TotalTouchdownsDB.Games
+//     where kickoff_datetime > ':dt'
+//     order by kickoff_datetime asc
+//     limit 1
+//   ");
+//
+//   $r->execute(array(':dt' => $currDateTime));
+// }
