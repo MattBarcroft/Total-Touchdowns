@@ -5,8 +5,8 @@ include("../includes/navbar.php");
   $betFactory = new betsFactory();
   $userFactory = new userFactory();
   $bets = $betFactory->select_all_bet_selections_by_user($userFactory->getcurrentuserid());
-  $betid = $bets[0]->bet_id;
-
+  
+  
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,6 +17,8 @@ include("../includes/navbar.php");
     <div class="container">
 
 <?php
+if(count($bets) > 1){
+  $betid = $bets[0]->bet_id;
 echo "<table>";
 echo "<tr><td>Bet Placed: " . $bets[0]->bet_created . "</td></tr>";
 echo "<form action=\"../controllers/bet/editBet.php\" method=\"post\">";
@@ -34,6 +36,12 @@ echo "<input type=\"hidden\" name=\"weekid\" value=". $bets[0]->select_id . ">";
  </tr>
  </form>
  </table>
+ <?php
+}
+else {
+  echo "<p>You have not placed any bets</p>";
+}
+ ?>
  </div>
 </body>
 </html>

@@ -29,17 +29,16 @@ function getCurrentUser(){
     $pdo = get_db();
 
     $r = $pdo->prepare("select user_id, username, firstname, lastname, address, password,
-    email, accountcreated, totalscore, rgoptout from TotalTouchdownsDB.users where username = :username");
+    email, accountcreated, accountmodified, totalscore, rgoptout from TotalTouchdownsDB.users where username = :username");
 
     $r->execute(array(':username' => $_COOKIE['username']));
     $user = new user();
     $userArr = $r->fetchAll();
-
     //$username, $userfirstname, $userlastname, $useraddress, $useremail,
     //$userpassword, $useraccountcreated, $useraccountmodified, $usertotalscore, $userrgoptout
     $user->user_constructAll($userArr[0]["user_id"], $userArr[0]["username"], $userArr[0]["firstname"], $userArr[0]["lastname"],
     $userArr[0]["address"], $userArr[0]["email"], $userArr[0]["password"], $userArr[0]["accountcreated"],
-    $userArr[0]["accountmodified"], $userArr[0]["usertotalscore"], $userArr[0]["userrgoptout"]);
+    $userArr[0]["accountmodified"], $userArr[0]["totalscore"], $userArr[0]["rgoptout"]);
 
     return $user;
 

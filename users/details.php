@@ -17,23 +17,23 @@ $user = $userFactory->getCurrentUser();
         <table>
           <tr>
             <td>Username: </td>
-            <td><? echo $user->username; ?></td>
+            <td><?php echo $user->username; ?></td>
           </tr>
           <tr>
             <td>Firstname: </td>
-            <td><? echo $user->userfirstname; ?></td>
+            <td><?php echo $user->userfirstname; ?></td>
           </tr>
           <tr>
             <td>Lastname: </td>
-            <td><? echo $user->userlastname; ?></td>
+            <td><?php echo $user->userlastname; ?></td>
           </tr>
           <tr>
             <td>Email: </td>
-            <td><? echo $user->useremail; ?></td>
+            <td><?php echo $user->useremail; ?></td>
           </tr>
           <tr>
             <td>Date Created: </td>
-            <td><? echo $user->useraccountcreated; ?></td>
+            <td><?php echo $user->useraccountcreated; ?></td>
           </tr>
         </table>
       </div>

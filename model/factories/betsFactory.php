@@ -63,6 +63,21 @@ class betsFactory
         $r->execute(array(':user_id' => $user_id));
         return $r;
     }
+    public function select_bet_by_user_week($user_id, $week_id)
+    {
+        $pdo = get_db();
+    
+        $r = $pdo->prepare("
+        SELECT  t1.first_quarter_td
+        FROM TotalTouchdownsDB.Bets t1
+        LEFT JOIN TotalTouchdownsDB.Selections t2 ON t1.bet_id = t2.bet_id
+        LEFT JOIN TotalTouchdownsDB.Games t3 ON t2.game_id = t3.game_id
+        WHERE t1.user_id = :user_id AND t3.week_id = :week_id
+        GROUP BY t1.first_quarter_td");
+    
+        $r->execute(array(':user_id' => $user_id, ':week_id' => $week_id));
+        return $r;
+    }
     public function select_last_bet_placed($user_id)
     {
         $pdo = get_db();
