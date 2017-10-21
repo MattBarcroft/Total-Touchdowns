@@ -23,11 +23,13 @@ include("../includes/navbar.php");
 
     foreach ($users as $user) {
       echo "<tr>";
-
+      echo "<form action=\"../controllers/user/makeAdmin.php\" method=\"post\">";
+      echo "<input type=\"hidden\" name=\"userid\" value=" .  $user[0] . ">";
       for ($i=0; $i < count($users); $i++) {
         echo "<td>$user[$i]</td>";
       }
-      echo "<td><button type=\"button\" name=\"adminbutton\" onclick=\"<someScript>\">Make Admin</button></td>";
+      echo "<td><input type=\"submit\" value=\"Toggle Admin\"></td>";
+      echo "</form>";
       echo "</tr>";
     }
      ?>

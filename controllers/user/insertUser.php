@@ -15,12 +15,21 @@ $user->user_Construct($username, $firstname, $lastname, $address, $email, $passw
 
 
 $userFactory = new userFactory();
+$isuser = $userFactory->check_username($username);
+
+//this needs doing ajax style
+if ($isuser == 0) {
 
   $userFactory->insertUser($user);
+  $loginfactory = new loginfactory();
+  $loginfactory->create_session($username, $password);
 
-$loginfactory = new loginfactory();
-$loginfactory->create_session($username, $password);
-
-header("Location: /index.php")
+  header("Location: /index.php");
+} else {
+  ?> <script>
+  alert("This user already exists");
+  window.history.back();
+  </script> <?php
+}
 
 ?>

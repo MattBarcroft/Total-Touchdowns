@@ -13,7 +13,7 @@
   <p class="m-0 text-center text-white">©SkyBet</p>
   </div>
   <div class="card-flex">
-  <a href="../optout.php">
+  <a href="../users/optout.php">
       <h4>Click here to opt out</h4>
 </a>
 </div>

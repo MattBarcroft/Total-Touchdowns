@@ -1,13 +1,11 @@
 <?php
 include("../../includes/init.php");
 
-//work out how to pull values through from front end, possibly create objs and present them
-$uid = $_POST("");
-$admin = $_POST("");
+$uid = $_POST["userid"];
 
 $userFactory = new userFactory();
 
-$userFactory->makeAdmin();
-
+$userFactory->makeAdmin($uid);
+header('Location:../../users/adminIndex.php');
 
  ?>

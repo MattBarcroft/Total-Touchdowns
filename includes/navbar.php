@@ -59,23 +59,25 @@
 	</div>
 </div>
 </div>
-<?php 
+<?php
 if(isset($_COOKIE["username"])){
     $userFactory = new userFactory();
-	
+
 	$user_id = $userFactory->getcurrentuserid();
-	  
+
+	$user_optout = $userFactory->is_opted_out();
+
 	$betsFactory = new betsFactory();
-			
+
 	$return = $betsFactory->select_last_bet_placed($user_id);
-			
+
 	if(($lastbetplacedarray = $return->fetch())){
 		$lastbetplaced = $lastbetplacedarray[0];
 	}
 	else{
 		$lastbetplaced = 0;
 	}
-	
+
 } else {
 	$lastbetplaced = 0;
 }
