@@ -231,42 +231,6 @@ a>h4 {
   border-radius: 0px 0px 3px 3px;
 }
 
-
-/* MEDIA QUERIES*/
-
-
-/* DESKTOP */
-
-@media screen and (min-width: 992px) {
-  .card {
-    height: 220px;
-  }
-  .card-user-bets {
-    height: 250px!important;
-  }
-  .card-flex {
-    width: 30%;
-  }
-  #week-selector {
-    width: 700px;
-  }
-}
-
-
-/* MOBILE/TABLET */
-
-@media screen and (max-width: 992px) {
-  .card {
-    height: 300px;
-  }
-  .card-user-bets {
-    height: 350px!important;
-  }
-  .card-img-top {
-    width: 40%;
-  }
-}
-
 .card {
   position: relative;
 }
@@ -344,4 +308,48 @@ div#corner-triangle .corner-triangle-text a {
   margin: auto;
   height: 28px;
   display: table;
+}
+
+.col-md-4.padding-zero {
+  height: 100px;
+}
+
+#tiebreaker-p {
+  height: 91px;
+}
+
+
+/* MEDIA QUERIES*/
+
+
+/* DESKTOP */
+
+@media screen and (min-width: 992px) {
+  .card {
+    height: 220px;
+  }
+  .card-user-bets {
+    height: 250px!important;
+  }
+  .card-flex {
+    width: 30%;
+  }
+  #week-selector {
+    width: 700px;
+  }
+}
+
+
+/* MOBILE/TABLET */
+
+@media screen and (max-width: 992px) {
+  .card {
+    height: 350px;
+  }
+  .card-user-bets {
+    height: 350px!important;
+  }
+  .card-img-top {
+    width: 40%;
+  }
 }

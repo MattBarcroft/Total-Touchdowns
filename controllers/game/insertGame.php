@@ -20,4 +20,4 @@ $game = new games(
 $gameFactory = new gamesFactory();
 $gameFactory->insert_new_game($game);
 
-header("Location: /games/index.php");
+header("Location: /games/adminindex.php");

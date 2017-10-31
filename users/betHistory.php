@@ -67,9 +67,17 @@ include("../includes/head.php");
       </div>
       <div class="col-md-3">
         <div class="well">
-            <h3>Your Points</h3>
+            <h3>Points This Week</h3>
             <?php
             $leaderboardFactory = new leaderboardFactory();
+            $pointsthisweekarray = $leaderboardFactory->get_points_by_user_week($user_id, $weekid);
+            if($userpointsthisweek = $pointsthisweekarray->fetch()){
+              echo "<h1>".$userpointsthisweek['totalpoints']."</h1>";
+            }
+            else{
+              echo "<h1>0</h1>";
+            }
+            echo "<h3>Total Points</h3>";
             $userpointsarray = $leaderboardFactory->get_points_by_user($user_id);
             if($userpoints = $userpointsarray->fetch()){
                 echo "<h1>".$userpoints['totalpoints']."</h1>";

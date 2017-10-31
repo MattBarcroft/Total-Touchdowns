@@ -15,7 +15,6 @@ include("../includes/head.php");
       $game = new gamesFactory();
       $rows = $game->select_single_game($gameid);
       $r = $rows->fetchAll();
-      echo $r[0]['htm.name'];
       echo "<input type='hidden' value=".$r[0]['game_id']." name='game_id'>";
       echo $gameid;
      ?>

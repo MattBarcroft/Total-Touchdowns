@@ -21,7 +21,7 @@ class betsFactory
         $pdo = get_db();
 
         $r = $pdo->prepare("
-      UPDATE `TotalTouchdownsDB`.`Bets` (`bet_id`) VALUES (':user_id')");
+        UPDATE `TotalTouchdownsDB`.`Bets` (`bet_id`) VALUES (':user_id')");
 
         $r->execute(array(
         ':bet_id' => $bet->get_betid()));
@@ -33,7 +33,7 @@ class betsFactory
         $pdo = get_db();
 
         $r = $pdo->prepare("
-      DELETE FROM `TotalTouchdownsDB`.`Bets` WHERE bet_id = ':bet_id'");
+        DELETE FROM TotalTouchdownsDB.Bets WHERE bet_id = :bet_id");
 
         $r->execute(array(':bet_id' => $bet_id));
     }
@@ -101,8 +101,8 @@ class betsFactory
         $pdo = get_db();
 
         $r = $pdo->prepare("
-            SELECT t1.bet_id, t1.betcreated,
-            t4.name, t5.name, t2.hometeamscore, t2.awayteamscore
+            SELECT t1.bet_id, t1.betcreated, t4.name, t5.name, t2.hometeamscore, t2.awayteamscore, 
+            t4.team_id, t5.team_id, t3.week_id
             FROM TotalTouchdownsDB.Bets t1
             LEFT JOIN TotalTouchdownsDB.Selections t2 ON t1.bet_id = t2.bet_id
             LEFT JOIN TotalTouchdownsDB.Games t3 ON t2.game_id = t3.game_id
@@ -114,17 +114,9 @@ class betsFactory
         ");
 
         $r->execute(array(':user_id' => $user_id, ':week_id' => $week_id, ':game_id' => $game_id ));
-        $bets = $r->FetchAll(PDO::FETCH_NUM);
+        $bet = $r->fetch(PDO::FETCH_NUM);
 
-        $kvp = [];
-
-        foreach ($bets as $bet) {
-            $bs = new betSelections($bet[0], $bet[1], $bet[2], $bet[3], $bet[4], $bet[5]);
-
-            array_push($kvp, $bs);
-        }
-
-        return $kvp;
+        return $bet;
     }
 
     public function getWeekId()
@@ -226,7 +218,8 @@ class betsFactory
 
         $startinggameid = reset($selections);
 
-        for ($i=$startinggameid; $i < ($startinggameid+(count($_POST)/3)); $i++) {
+        for ($i=$startinggameid; $i < ($startinggameid+(count($_POST)/3))-1; $i++) {
+            
             $stmt = $pdo->prepare("insert into TotalTouchdownsDB.Selections
             (bet_id, game_id, hometeamscore, awayteamscore)
             Values (:betid, :gameid, :htscore, :atscore)");
@@ -235,6 +228,31 @@ class betsFactory
           ':htscore' => $selections["htscore-game-$i"], ':atscore' => $selections["atscore-game-$i"]));
 
         }
+
+    }
+
+    public function get_winners(){
+        
+        $pdo = get_db();
+        
+        $r = $pdo->prepare("
+            SELECT bet_id, user_id, week_id, pointsPerBet, fqt_diff FROM (
+            SELECT bet.bet_id, bet.user_id, gam.week_id, SUM(sel.pointsawarded) as pointsPerBet, (bet.first_quarter_td - SUM(gam.first_quarter_td)) as fqt_diff FROM TotalTouchdownsDB.Bets bet
+            JOIN TotalTouchdownsDB.Selections sel
+            ON sel.bet_id = bet.bet_id
+            JOIN TotalTouchdownsDB.Games gam
+            ON  gam.game_id = sel.game_id
+            GROUP BY bet.bet_id, gam.week_id, bet.first_quarter_td )
+            as pointsAwarded
+            where pointsPerBet = 25; 
+            ");
+
+        $r->execute();
+
+        return $r;
+
+
+            
 
     }
 }

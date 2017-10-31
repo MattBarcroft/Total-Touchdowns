@@ -11,11 +11,14 @@
         else{
           $gameResultsReleased = 0;
         }
-        if($lastbetplaced == $weekid){
-          $betplacedflag = 1;
-          $betselection = $betsFactory->select_single_bet_selections_by_user_week_game($user_id, $weekid, $row['game_id']);
-          
-        }
+
+
+          if($betselection = $betsFactory->select_single_bet_selections_by_user_week_game($user_id, $weekid, $row['game_id'])){
+            $betplacedflag = 1;    
+            //echo "<h1>".var_dump($betselection)."</h1>"; 
+          }
+
+
 
           ?>
         <div class="card-flex">
@@ -77,7 +80,7 @@
                   echo "<input name='gameid-".$row['game_id']."' value='".$row['game_id']."' type='hidden'>";
                   if($betplacedflag == 1){
                     echo "<input class='form-control input-bet-scores' id='htscore-bet-result-".$row['game_id']."' 
-                    name='htscore-game-".$row['game_id']."' type='text' readonly value='".$betselection[0]->home_team_score."'>";
+                    name='htscore-game-".$row['game_id']."' type='text' readonly value='".$betselection[4]."'>";
                   }else{
                     echo "<input class='form-control input-bet-scores' id='htscore-bet-result-".$row['game_id']."' 
                     name='htscore-game-".$row['game_id']."' type='text' readonly value=''>";
@@ -110,7 +113,7 @@
                   echo "<input name='gameid-".$row['game_id']."' value='".$row['game_id']."' type='hidden'>";
                   if($betplacedflag == 1){
                     echo "<input class='form-control input-bet-scores' id='atscore-bet-result-".$row['game_id']."' 
-                    name='atscore-game-".$row['game_id']."' type='text' readonly value='".$betselection[0]->away_team_score."'>";
+                    name='atscore-game-".$row['game_id']."' type='text' readonly value='".$betselection[5]."'>";
                   }else{
                     echo "<input class='form-control input-bet-scores' id='atscore-bet-result-".$row['game_id']."' 
                     name='atscore-game-".$row['game_id']."' type='text' readonly value=''>";

@@ -7,9 +7,16 @@ $user = new userFactory();
 $user_id = $user->getcurrentuserid();
 
 $betsFactory = new betsFactory();
-//strip tags
-$bet_id = $betsFactory->insert_new_bet($user_id, $_POST["tiebreaker"]);
 
+var_dump($_POST);
+foreach ($_POST as $key => $value) { 
+    if(!ctype_digit($value)){
+        die(header("HTTP/1.0 403 Forbidden"));
+        break;
+    }
+    
+}
+$bet_id = $betsFactory->insert_new_bet($user_id, $_POST["tiebreaker"]);
 $betsFactory->insert_selections($bet_id, $_POST);
 
-header("Location: /index.php");
+?>

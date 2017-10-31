@@ -9,14 +9,18 @@
             success: function () {
               alert('Your bet was submitted successfully');
               window.location.reload();
+            },
+            error: function () {
+              alert('Error in Data, Prediction not Posted');
+              window.location.reload();
             }
           });
         });
       });
     </script>
-<form id='form-bet-scores'>
+<!-- <form id='form-bet-scores' method='post' action='controllers/bet/insertBet.php'> -->
   <!-- Page Features -->
-
+  <form id="form-bet-scores">
   <div class="well">
           <div class="row text-center container-flex">
       <?php
@@ -146,7 +150,7 @@
           Tiebreaker - Touchdowns in First Quarter
         </p>
         <div>
-          <p>
+          <p id="tiebreaker-p">
           The final Tiebreaker will determine the winner if two or more predictions are correct.
           </p>
 
