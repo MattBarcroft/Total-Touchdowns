@@ -53,6 +53,8 @@
 			<li><a href="../index.php">Play</a></li>
 			<li><a href="../leaderboard/index.php">Leaderboard</a></li>
 			<li><a href="../users/betHistory.php">My Bets</a></li>
+			<li><a href="../info/howToPlay.php">How to Play</a></li>
+			<li><a href="../info/termsAndConditions.php">Terms and Conditions</a></li>
 		</ul>
 
 
