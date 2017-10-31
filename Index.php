@@ -6,6 +6,14 @@ include("includes/head.php");
 
   include("includes/navbar.php");
   ?>
+
+  <!-- for opted out gamblers -->
+  <?php
+      $uf = new userFactory();
+      $oo = $uf->is_opted_out();
+      if ($oo == 0) {
+  ?>
+
   <?php
   $games = new gamesFactory();
   $return = $games->most_recent_game_completed();
@@ -75,7 +83,11 @@ include("includes/head.php");
     <!-- /.container -->
 
     <!-- Footer -->
+
+
+<!-- for opted out gamblers -->
 <?php
+} else {echo "<div class=\"container\"><h1>You are opted out of gambling</h1></div>";}
 include("includes/footer.php");
 ?>
 

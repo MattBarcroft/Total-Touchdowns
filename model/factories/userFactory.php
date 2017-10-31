@@ -13,6 +13,23 @@ class userFactory {
             ':email' => $user->get_useremail(),':rgoptout' => 0));
 
   }
+  public function check_username($username)
+  {
+    $pdo = get_db();
+
+    $r = $pdo->prepare("SELECT * FROM TotalTouchdownsDB.Users where username = :username");
+
+    $r->execute(array(':username' => $username));
+
+    $user = $r->fetchAll();
+
+    if (count($user) > 0) {
+      return 1;
+    }
+    else {return 0;}
+
+
+  }
 function getcurrentuserid(){
 $pdo = get_db();
 $r = $pdo->prepare("select user_id from TotalTouchdownsDB.users where username = :username");
@@ -67,14 +84,30 @@ function getCurrentUser(){
 
   }
 
-  function makeAdmin($uid, $admin){
+  function makeAdmin($uid){
     $pdo = get_db();
 
     $r = $pdo->prepare("
-        update TotalTouchdownsDB.Users set admin= :ad where user_id = :uid");
+        update TotalTouchdownsDB.Users set admin= !admin where user_id = :uid");
 
-        $r->execute(array(':uid' => $uid, ':ad' => $admin));
+        $r->execute(array(':uid' => $uid));
+  }
 
+  public function is_Admin()
+  {
+    $pdo = get_db();
+    if (isset($_SESSION["username"])) {
+      $username = $_SESSION["username"];
+
+      $r = $pdo->prepare("select admin from TotalTouchdownsDB.Users where username = :username");
+
+      $r->execute(array(':username' => $username));
+
+      $isadmin = $r->fetch();
+
+      return $isadmin[0];
+    }
+    else return 0;
   }
 
   function optout($uid){
@@ -86,10 +119,26 @@ function getCurrentUser(){
         where user_id = :uid");
 
     $r->execute(array(':uid' => $uid));
-    //$_COOKIE['optout'] = 1;
+
     return;
   }
 
+  public function is_opted_out()
+  {
+    $pdo = get_db();
+    if (isset($_SESSION["username"])) {
+      $username = $_SESSION["username"];
+
+      $r = $pdo->prepare("select rgoptout from TotalTouchdownsDB.Users where username = :username");
+
+      $r->execute(array(':username' => $username));
+
+      $isoptedout = $r->fetch();
+
+      return $isoptedout[0];
+    }
+    else return 0;
+  }
 }
 
  ?>

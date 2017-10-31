@@ -18,7 +18,7 @@ include("../includes/head.php");
   $rows = $games->select_games_by_week($weekid);
 
   ?>
-  <?php if(isset($user_id)){ ?>
+  <?php if(isset($user_id) && $user_optout != 1){ ?>
   <div class="container">
 
     <div class="text-center">
@@ -56,7 +56,7 @@ include("../includes/head.php");
   </div>
 
     <!-- Page Content -->
-    
+
 
     <div class="container">
 
@@ -86,11 +86,12 @@ include("../includes/head.php");
             ?>
         </div>
     </div>
-    <?php }else{ ?>
-
-    <?php 
-    echo "<h3>Please Login</h3>";
-    }; ?>
+    <?php }else{
+      if ($user_optout == 1) {
+        echo "<h3>You are opted out.</h3>";
+      } else { echo "<h3>Please Login</h3>"; }
+    }
+    ?>
 </div>
 
     <!-- /.container -->

@@ -52,5 +52,18 @@ $user = $userFactory->getCurrentUser();
       </form>
       </div>
 
+      <?php if ($userFactory->is_Admin() == 1) {  ?>
+      <div class="container">
+        <h2>Admin</h2>
+        <p>Use this to access admin options</p>
+          <select name="dropdown" onchange="location = this.value">
+          <option value="details.php">-</option>
+          <option value="adminIndex.php">User Details</option>
+          //add more admin options here
+          <option value=""></option>
+        </select>
+      </div>
+    <?php } ?>
+
   </body>
 </html>
