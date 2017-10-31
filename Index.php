@@ -17,6 +17,7 @@ include("includes/head.php");
   <?php
   $games = new gamesFactory();
   $return = $games->most_recent_game_completed();
+  //gets last week by querying the last week that game scores had been input into
   $lastweekarray = $return->fetch();
   $currentweek = (int)$lastweekarray[0]+1;
   isset($_GET['week_id']) ? $weekid = $_GET['week_id'] : $weekid = $currentweek;

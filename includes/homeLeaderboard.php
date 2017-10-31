@@ -2,8 +2,8 @@
 <h3>Leaderboard</h3>
 <table class="table">
   <tr>
-    <th>Name</th>
     <th>Points</th>
+    <th>Name</th>
   </tr>
   <?php
     $leaderboardFactory = new leaderboardFactory();
